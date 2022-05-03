@@ -1,0 +1,145 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CollegeWallsHalifax</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mygdx.pirategame.college</a>
+</div>
+
+<h1>Coverage Summary for Class: CollegeWallsHalifax (com.mygdx.pirategame.college)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CollegeWallsHalifax</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (3/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.mygdx.pirategame.college;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.*;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;import com.badlogic.gdx.Gdx;
+<i class="no-highlight">6</i>&nbsp;import com.badlogic.gdx.math.Rectangle;
+<i class="no-highlight">7</i>&nbsp;import com.mygdx.pirategame.screens.GameScreen;
+<i class="no-highlight">8</i>&nbsp;import com.mygdx.pirategame.world.InteractiveTileObject;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;/**
+<i class="no-highlight">11</i>&nbsp; * College Walls (Halifax)
+<i class="no-highlight">12</i>&nbsp; * Checks interaction with walls from map
+<i class="no-highlight">13</i>&nbsp; *
+<i class="no-highlight">14</i>&nbsp; *@author Ethan Alabaster, Sam Pearson
+<i class="no-highlight">15</i>&nbsp; *@version 1.0
+<i class="no-highlight">16</i>&nbsp; */
+<i class="no-highlight">17</i>&nbsp;public class CollegeWallsHalifax extends InteractiveTileObject {
+<i class="no-highlight">18</i>&nbsp;    /**
+<i class="no-highlight">19</i>&nbsp;     * Sets bounds of college walls
+<i class="no-highlight">20</i>&nbsp;     *
+<i class="no-highlight">21</i>&nbsp;     * @param screen Visual data
+<i class="no-highlight">22</i>&nbsp;     * @param bounds Wall bounds
+<i class="no-highlight">23</i>&nbsp;     */
+<i class="no-highlight">24</i>&nbsp;    public CollegeWallsHalifax(GameScreen screen, Rectangle bounds) {
+<b class="fc"><i class="no-highlight">25</i>&nbsp;        super(screen, bounds);</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        fixture.setUserData(this);</b>
+<i class="no-highlight">27</i>&nbsp;        //Set the category bit
+<b class="fc"><i class="no-highlight">28</i>&nbsp;        setCategoryFilter(COLLEGE_BIT);</b>
+<i class="no-highlight">29</i>&nbsp;    }
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    /**
+<i class="no-highlight">32</i>&nbsp;     * Checks for contact with cannonball
+<i class="no-highlight">33</i>&nbsp;     */
+<i class="no-highlight">34</i>&nbsp;    @Override
+<i class="no-highlight">35</i>&nbsp;    public void onContact() {
+<b class="nc"><i class="no-highlight">36</i>&nbsp;        Gdx.app.log(&quot;wall&quot;, &quot;Halifax&quot;);</b>
+<i class="no-highlight">37</i>&nbsp;        //Deal damage to the assigned college
+<b class="nc"><i class="no-highlight">38</i>&nbsp;        GameScreen.getCollege(&quot;Halifax&quot;).onContact();</b>
+<i class="no-highlight">39</i>&nbsp;    }
+<i class="no-highlight">40</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-03 14:20</div>
+</div>
+</body>
+</html>

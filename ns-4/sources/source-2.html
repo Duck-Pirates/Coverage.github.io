@@ -1,0 +1,274 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Cloud</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mygdx.pirategame.entities</a>
+</div>
+
+<h1>Coverage Summary for Class: Cloud (com.mygdx.pirategame.entities)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Cloud</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (52/52)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.mygdx.pirategame.entities;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.CLOUDS_BIT;
+<i class="no-highlight">4</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.PLAYER_BIT;
+<i class="no-highlight">5</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.PPM;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">8</i>&nbsp;import java.util.Arrays;
+<i class="no-highlight">9</i>&nbsp;import java.util.List;
+<i class="no-highlight">10</i>&nbsp;import java.util.Random;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;import com.badlogic.gdx.graphics.Texture;
+<i class="no-highlight">13</i>&nbsp;import com.badlogic.gdx.graphics.g2d.Animation;
+<i class="no-highlight">14</i>&nbsp;import com.badlogic.gdx.graphics.g2d.Batch;
+<i class="no-highlight">15</i>&nbsp;import com.badlogic.gdx.graphics.g2d.TextureRegion;
+<i class="no-highlight">16</i>&nbsp;import com.badlogic.gdx.math.Vector2;
+<i class="no-highlight">17</i>&nbsp;import com.badlogic.gdx.physics.box2d.BodyDef;
+<i class="no-highlight">18</i>&nbsp;import com.badlogic.gdx.physics.box2d.FixtureDef;
+<i class="no-highlight">19</i>&nbsp;import com.badlogic.gdx.physics.box2d.PolygonShape;
+<i class="no-highlight">20</i>&nbsp;import com.mygdx.pirategame.screens.GameScreen;
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;
+<i class="no-highlight">23</i>&nbsp;/**
+<i class="no-highlight">24</i>&nbsp; * Cloud
+<i class="no-highlight">25</i>&nbsp; * Creates an object for each cloud
+<i class="no-highlight">26</i>&nbsp; * Extends the entity class to define cloud as an entity
+<i class="no-highlight">27</i>&nbsp; *
+<i class="no-highlight">28</i>&nbsp; * @author Davide Bressani
+<i class="no-highlight">29</i>&nbsp; * @version 1.0
+<i class="no-highlight">30</i>&nbsp; */
+<i class="no-highlight">31</i>&nbsp;
+<i class="no-highlight">32</i>&nbsp;public class Cloud extends Entity {
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;    private float state;
+<i class="no-highlight">35</i>&nbsp;    private Animation&lt;?&gt; cloudAnimation;
+<i class="no-highlight">36</i>&nbsp;    private float alpha;
+<i class="no-highlight">37</i>&nbsp;    private int dimension;
+<b class="fc"><i class="no-highlight">38</i>&nbsp;    private boolean inContact = false, endReset = true;</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;    private Random rand = new Random();</b>
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;    /**
+<i class="no-highlight">42</i>&nbsp;     * Instantiates a new Cloud.
+<i class="no-highlight">43</i>&nbsp;     *
+<i class="no-highlight">44</i>&nbsp;     * @param screen the screen its going onto
+<i class="no-highlight">45</i>&nbsp;     * @param x      the x value to be placed at
+<i class="no-highlight">46</i>&nbsp;     * @param y      the y value to be placed at
+<i class="no-highlight">47</i>&nbsp;     */
+<i class="no-highlight">48</i>&nbsp;
+<i class="no-highlight">49</i>&nbsp;    public Cloud(GameScreen screen, float x, float y) {
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        super(screen, x, y);</b>
+<i class="no-highlight">51</i>&nbsp;        //Set cloud image and animation
+<b class="fc"><i class="no-highlight">52</i>&nbsp;        texture = new Texture(&quot;clouds.png&quot;);</b>
+<b class="fc"><i class="no-highlight">53</i>&nbsp;        TextureRegion[][] tmp = new TextureRegion(texture).split(2048, 1256);</b>
+<b class="fc"><i class="no-highlight">54</i>&nbsp;        List&lt;TextureRegion&gt; list = new ArrayList&lt;TextureRegion&gt;(Arrays.asList(tmp[0]));</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        list.addAll(Arrays.asList(tmp[1]));</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        int startIndex = rand.nextInt(4); // This is to randomize the cloud animation</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        setRegion(list.get(startIndex));</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        state = (startIndex * 0.25f) + 0.1f;</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        cloudAnimation = new Animation&lt;Object&gt;(0.25f,  list.toArray());</b>
+<i class="no-highlight">60</i>&nbsp;        //Set the position and size of the cloud
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        setBounds(0,0,dimension / PPM, dimension * (0.61328125f) / PPM);</b>
+<i class="no-highlight">62</i>&nbsp;        //Sets origin of the cloud
+<b class="fc"><i class="no-highlight">63</i>&nbsp;        setOrigin(24 / PPM,24 / PPM);</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;        alpha = 0.7f;</b>
+<i class="no-highlight">65</i>&nbsp;    }
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;    /**
+<i class="no-highlight">68</i>&nbsp;     * Defines an entity for the cloud
+<i class="no-highlight">69</i>&nbsp;     */
+<i class="no-highlight">70</i>&nbsp;
+<i class="no-highlight">71</i>&nbsp;    @Override
+<i class="no-highlight">72</i>&nbsp;    protected void defineEntity(float x, float y) {
+<i class="no-highlight">73</i>&nbsp;        //sets the body definitions
+<b class="fc"><i class="no-highlight">74</i>&nbsp;        BodyDef bdef = new BodyDef();</b>
+<b class="fc"><i class="no-highlight">75</i>&nbsp;        bdef.position.set(x, y);</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;        bdef.type = BodyDef.BodyType.DynamicBody;</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;        body = world.createBody(bdef);</b>
+<i class="no-highlight">78</i>&nbsp;
+<i class="no-highlight">79</i>&nbsp;        //Sets collision boundaries
+<b class="fc"><i class="no-highlight">80</i>&nbsp;        FixtureDef fdef = new FixtureDef();</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;        PolygonShape shape = new PolygonShape();</b>
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        Random rand = new Random();</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;        dimension = rand.nextInt(301-200)+200;</b>
+<b class="fc"><i class="no-highlight">84</i>&nbsp;        shape.setAsBox(dimension/2/PPM, dimension * (0.61328125f) /2/PPM);</b>
+<i class="no-highlight">85</i>&nbsp;        // setting BIT identifier
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        fdef.filter.categoryBits = CLOUDS_BIT;</b>
+<i class="no-highlight">87</i>&nbsp;        // determining what this BIT can collide with
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        fdef.filter.maskBits = PLAYER_BIT;</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        fdef.shape = shape;</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        fdef.isSensor = true;</b>
+<b class="fc"><i class="no-highlight">91</i>&nbsp;        body.createFixture(fdef).setUserData(this);</b>
+<i class="no-highlight">92</i>&nbsp;    }
+<i class="no-highlight">93</i>&nbsp;
+<i class="no-highlight">94</i>&nbsp;    /**
+<i class="no-highlight">95</i>&nbsp;     * (Not Used)
+<i class="no-highlight">96</i>&nbsp;     *
+<i class="no-highlight">97</i>&nbsp;     * Defines contact
+<i class="no-highlight">98</i>&nbsp;     */
+<i class="no-highlight">99</i>&nbsp;
+<i class="no-highlight">100</i>&nbsp;    @Override
+<i class="no-highlight">101</i>&nbsp;    public void onContact() {
+<b class="fc"><i class="no-highlight">102</i>&nbsp;        inContact = true;</b>
+<i class="no-highlight">103</i>&nbsp;    }
+<i class="no-highlight">104</i>&nbsp;
+<i class="no-highlight">105</i>&nbsp;    /**
+<i class="no-highlight">106</i>&nbsp;     * Updates the position and the animation frame of the cloud
+<i class="no-highlight">107</i>&nbsp;     * @param dt time elapsed from last game frame
+<i class="no-highlight">108</i>&nbsp;     */
+<i class="no-highlight">109</i>&nbsp;
+<i class="no-highlight">110</i>&nbsp;    public void update(float dt){
+<b class="fc"><i class="no-highlight">111</i>&nbsp;        setPosition(getBody().getPosition().x - getWidth() / 2f, getBody().getPosition().y - getHeight() / 2f);</b>
+<b class="fc"><i class="no-highlight">112</i>&nbsp;        if(state % 0.15f &lt; 0.10f){</b>
+<b class="fc"><i class="no-highlight">113</i>&nbsp;            this.getBody().applyForce(new Vector2(-0.03f,-0.03f), this.getBody().getWorldCenter(), false);</b>
+<i class="no-highlight">114</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">115</i>&nbsp;        setRegion(getFrame(dt));</b>
+<b class="fc"><i class="no-highlight">116</i>&nbsp;        if(inContact){</b>
+<b class="fc"><i class="no-highlight">117</i>&nbsp;            changeAlpha();</b>
+<i class="no-highlight">118</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">119</i>&nbsp;        else if(!endReset){</b>
+<b class="fc"><i class="no-highlight">120</i>&nbsp;            resetAlpha();</b>
+<i class="no-highlight">121</i>&nbsp;        }
+<i class="no-highlight">122</i>&nbsp;    }
+<i class="no-highlight">123</i>&nbsp;
+<i class="no-highlight">124</i>&nbsp;    /**
+<i class="no-highlight">125</i>&nbsp;     * Changes the alpha value (transparency) of the cloud if the player is getting closer
+<i class="no-highlight">126</i>&nbsp;     */
+<i class="no-highlight">127</i>&nbsp;
+<i class="no-highlight">128</i>&nbsp;    public void changeAlpha() {
+<b class="fc"><i class="no-highlight">129</i>&nbsp;        this.alpha = this.alpha*0.99f;</b>
+<b class="fc"><i class="no-highlight">130</i>&nbsp;        if (this.alpha &lt; 0.5f){</b>
+<b class="fc"><i class="no-highlight">131</i>&nbsp;            inContact = false;</b>
+<b class="fc"><i class="no-highlight">132</i>&nbsp;            this.alpha = 0.5f;</b>
+<i class="no-highlight">133</i>&nbsp;        }
+<i class="no-highlight">134</i>&nbsp;    }
+<i class="no-highlight">135</i>&nbsp;
+<i class="no-highlight">136</i>&nbsp;    /**
+<i class="no-highlight">137</i>&nbsp;     * Slowly resets the alpha value of the cloud when the player is leaving the cloud behind
+<i class="no-highlight">138</i>&nbsp;     */
+<i class="no-highlight">139</i>&nbsp;
+<i class="no-highlight">140</i>&nbsp;    public void resetAlpha(){
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        inContact = false;</b>
+<b class="fc"><i class="no-highlight">142</i>&nbsp;        endReset = false;</b>
+<b class="fc"><i class="no-highlight">143</i>&nbsp;        this.alpha = this.alpha*1.005f;</b>
+<b class="fc"><i class="no-highlight">144</i>&nbsp;        if (this.alpha &gt; 0.9f){</b>
+<b class="fc"><i class="no-highlight">145</i>&nbsp;            endReset = true;</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;            this.alpha = 0.9f;</b>
+<i class="no-highlight">147</i>&nbsp;        }
+<i class="no-highlight">148</i>&nbsp;    }
+<i class="no-highlight">149</i>&nbsp;
+<i class="no-highlight">150</i>&nbsp;    /**
+<i class="no-highlight">151</i>&nbsp;     * Draws the cloud onto the screen
+<i class="no-highlight">152</i>&nbsp;     * @param batch The game&#39;s sprite batch
+<i class="no-highlight">153</i>&nbsp;     */
+<i class="no-highlight">154</i>&nbsp;    public void draw(Batch batch) {
+<b class="fc"><i class="no-highlight">155</i>&nbsp;        super.setAlpha(alpha);</b>
+<b class="fc"><i class="no-highlight">156</i>&nbsp;        super.draw(batch);</b>
+<i class="no-highlight">157</i>&nbsp;    }
+<i class="no-highlight">158</i>&nbsp;
+<i class="no-highlight">159</i>&nbsp;    /**
+<i class="no-highlight">160</i>&nbsp;     * Getter for the Cloud&#39;s animation frame
+<i class="no-highlight">161</i>&nbsp;     * @param dt time elapsed from last game frame
+<i class="no-highlight">162</i>&nbsp;     */
+<i class="no-highlight">163</i>&nbsp;    public TextureRegion getFrame(float dt){
+<i class="no-highlight">164</i>&nbsp;        TextureRegion region;
+<b class="fc"><i class="no-highlight">165</i>&nbsp;        state += dt;</b>
+<b class="fc"><i class="no-highlight">166</i>&nbsp;        region = (TextureRegion) cloudAnimation.getKeyFrame(state, true);</b>
+<b class="fc"><i class="no-highlight">167</i>&nbsp;        return region;</b>
+<i class="no-highlight">168</i>&nbsp;    }
+<i class="no-highlight">169</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-03 22:13</div>
+</div>
+</body>
+</html>

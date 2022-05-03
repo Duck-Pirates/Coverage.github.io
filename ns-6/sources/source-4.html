@@ -1,0 +1,430 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Hud</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mygdx.pirategame.screens</a>
+</div>
+
+<h1>Coverage Summary for Class: Hud (com.mygdx.pirategame.screens)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Hud</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (9/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90.3%
+  </span>
+  <span class="absValue">
+    (102/113)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.mygdx.pirategame.screens;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.badlogic.gdx.Gdx;
+<i class="no-highlight">4</i>&nbsp;import com.badlogic.gdx.graphics.Color;
+<i class="no-highlight">5</i>&nbsp;import com.badlogic.gdx.graphics.Texture;
+<i class="no-highlight">6</i>&nbsp;import com.badlogic.gdx.graphics.g2d.BitmapFont;
+<i class="no-highlight">7</i>&nbsp;import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+<i class="no-highlight">8</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.Stage;
+<i class="no-highlight">9</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.Image;
+<i class="no-highlight">10</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.Label;
+<i class="no-highlight">11</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.Table;
+<i class="no-highlight">12</i>&nbsp;import com.badlogic.gdx.utils.Disposable;
+<i class="no-highlight">13</i>&nbsp;import com.badlogic.gdx.utils.viewport.ScreenViewport;
+<i class="no-highlight">14</i>&nbsp;import com.badlogic.gdx.utils.viewport.Viewport;
+<i class="no-highlight">15</i>&nbsp;import com.mygdx.pirategame.configs.Difficulty;
+<i class="no-highlight">16</i>&nbsp;
+<i class="no-highlight">17</i>&nbsp;/**
+<i class="no-highlight">18</i>&nbsp; * Hud
+<i class="no-highlight">19</i>&nbsp; * Produces a hud for the player
+<i class="no-highlight">20</i>&nbsp; *
+<i class="no-highlight">21</i>&nbsp; *@author Ethan Alabaster, Sam Pearson
+<i class="no-highlight">22</i>&nbsp; *@version 1.0
+<i class="no-highlight">23</i>&nbsp; */
+<i class="no-highlight">24</i>&nbsp;public class Hud implements Disposable {
+<i class="no-highlight">25</i>&nbsp;    public static Stage stage;
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    public Viewport viewport;
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;    public GameScreen screen;
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    public float timeCount;
+<i class="no-highlight">32</i>&nbsp;    public float Constant_timeCount;
+<i class="no-highlight">33</i>&nbsp;    public float hpConstant_Time;
+<i class="no-highlight">34</i>&nbsp;    public static Integer score;
+<i class="no-highlight">35</i>&nbsp;    public static Integer health;
+<i class="no-highlight">36</i>&nbsp;    public Texture hp;
+<i class="no-highlight">37</i>&nbsp;    public Texture boxBackground;
+<i class="no-highlight">38</i>&nbsp;    public Texture coinPic;
+<i class="no-highlight">39</i>&nbsp;    public static Texture PowerupPic;
+<i class="no-highlight">40</i>&nbsp;
+<i class="no-highlight">41</i>&nbsp;    public static Label scoreLabel;
+<i class="no-highlight">42</i>&nbsp;    public static Label healthLabel;
+<i class="no-highlight">43</i>&nbsp;    public static Label coinLabel;
+<i class="no-highlight">44</i>&nbsp;    public static Label pointsText;
+<i class="no-highlight">45</i>&nbsp;    //public static Label powerupLabel;
+<i class="no-highlight">46</i>&nbsp;    public static Integer coins;
+<i class="no-highlight">47</i>&nbsp;    public static Integer coinMulti;
+<b class="fc"><i class="no-highlight">48</i>&nbsp;    public static Integer previousHealth = 100;</b>
+<i class="no-highlight">49</i>&nbsp;
+<b class="fc"><i class="no-highlight">50</i>&nbsp;    public static Boolean PowerupTimerBool = false;</b>
+<i class="no-highlight">51</i>&nbsp;    public static float PowerupTimer;
+<i class="no-highlight">52</i>&nbsp;    public static Integer PowerUpType;
+<i class="no-highlight">53</i>&nbsp;
+<i class="no-highlight">54</i>&nbsp;    public Image hpImg;
+<i class="no-highlight">55</i>&nbsp;    public Image box;
+<i class="no-highlight">56</i>&nbsp;    public Image coin;
+<i class="no-highlight">57</i>&nbsp;    public static Image powerUp;
+<i class="no-highlight">58</i>&nbsp;
+<i class="no-highlight">59</i>&nbsp;
+<i class="no-highlight">60</i>&nbsp;    /**
+<i class="no-highlight">61</i>&nbsp;     * Retrieves information and displays it in the hud
+<i class="no-highlight">62</i>&nbsp;     * Adjusts hud with viewport
+<i class="no-highlight">63</i>&nbsp;     *
+<i class="no-highlight">64</i>&nbsp;     * @param sb Batch of images used in the hud
+<i class="no-highlight">65</i>&nbsp;     */
+<b class="fc"><i class="no-highlight">66</i>&nbsp;    public Hud(SpriteBatch sb, GameScreen screen) {</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        this.screen = screen;</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;        health = GameScreen.getDifficulty().getHP();</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;        score = 0;</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        coins = 0;</b>
+<b class="fc"><i class="no-highlight">71</i>&nbsp;        coinMulti = 1;</b>
+<i class="no-highlight">72</i>&nbsp;        //Set images
+<b class="fc"><i class="no-highlight">73</i>&nbsp;        hp = new Texture(&quot;hp.png&quot;);</b>
+<b class="fc"><i class="no-highlight">74</i>&nbsp;        boxBackground = new Texture(&quot;hudBG.png&quot;);</b>
+<b class="fc"><i class="no-highlight">75</i>&nbsp;        coinPic = new Texture(&quot;coin.png&quot;);</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;        PowerupPic = new Texture(&quot;blank.png&quot;);</b>
+<i class="no-highlight">77</i>&nbsp;
+<b class="fc"><i class="no-highlight">78</i>&nbsp;        hpImg = new Image(hp);</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;        box = new Image(boxBackground);</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;        coin = new Image(coinPic);</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;        powerUp = new Image(PowerupPic);</b>
+<i class="no-highlight">82</i>&nbsp;
+<i class="no-highlight">83</i>&nbsp;
+<i class="no-highlight">84</i>&nbsp;
+<b class="fc"><i class="no-highlight">85</i>&nbsp;        viewport = new ScreenViewport();</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;        stage = new Stage(viewport, sb);</b>
+<i class="no-highlight">87</i>&nbsp;
+<i class="no-highlight">88</i>&nbsp;        //Creates tables
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        Table table1 = new Table(); //Counters</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        Table table2 = new Table(); //Pictures or points label</b>
+<b class="fc"><i class="no-highlight">91</i>&nbsp;        Table table3 = new Table(); //Background</b>
+<i class="no-highlight">92</i>&nbsp;
+<b class="fc"><i class="no-highlight">93</i>&nbsp;        table1.top().right();</b>
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        table1.setFillParent(true);</b>
+<b class="fc"><i class="no-highlight">95</i>&nbsp;        table2.top().right();</b>
+<b class="fc"><i class="no-highlight">96</i>&nbsp;        table2.setFillParent(true);</b>
+<b class="fc"><i class="no-highlight">97</i>&nbsp;        table3.top().right();</b>
+<b class="fc"><i class="no-highlight">98</i>&nbsp;        table3.setFillParent(true);</b>
+<i class="no-highlight">99</i>&nbsp;
+<b class="fc"><i class="no-highlight">100</i>&nbsp;        powerUp.setFillParent(false);</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;        powerUp.setScale(0.3f,0.3f );</b>
+<i class="no-highlight">102</i>&nbsp;
+<i class="no-highlight">103</i>&nbsp;
+<i class="no-highlight">104</i>&nbsp;
+<i class="no-highlight">105</i>&nbsp;
+<b class="fc"><i class="no-highlight">106</i>&nbsp;        scoreLabel = new Label(String.format(&quot;%03d&quot;, score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;        if (GameScreen.getDifficulty() == Difficulty.EASY){</b>
+<b class="fc"><i class="no-highlight">108</i>&nbsp;            healthLabel = new Label(String.format(&quot;%03d&quot;, health), new Label.LabelStyle(new BitmapFont(), Color.RED));</b>
+<i class="no-highlight">109</i>&nbsp;        }
+<i class="no-highlight">110</i>&nbsp;        else{
+<b class="nc"><i class="no-highlight">111</i>&nbsp;            healthLabel = new Label(String.format(&quot;%02d&quot;, health), new Label.LabelStyle(new BitmapFont(), Color.RED));</b>
+<i class="no-highlight">112</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">113</i>&nbsp;        coinLabel = new Label(String.format(&quot;%03d&quot;, coins), new Label.LabelStyle(new BitmapFont(), Color.YELLOW));</b>
+<b class="fc"><i class="no-highlight">114</i>&nbsp;        pointsText = new Label(&quot;Points:&quot;, new Label.LabelStyle(new BitmapFont(), Color.WHITE));</b>
+<i class="no-highlight">115</i>&nbsp;
+<i class="no-highlight">116</i>&nbsp;
+<i class="no-highlight">117</i>&nbsp;
+<b class="fc"><i class="no-highlight">118</i>&nbsp;        table3.add(box).width(160).height(160).padBottom(15).padLeft(30);</b>
+<b class="fc"><i class="no-highlight">119</i>&nbsp;        table2.add(hpImg).width(32).height(32).padTop(16).padRight(90);</b>
+<b class="fc"><i class="no-highlight">120</i>&nbsp;        table2.row();</b>
+<b class="fc"><i class="no-highlight">121</i>&nbsp;        table2.add(coin).width(32).height(32).padTop(8).padRight(90);</b>
+<b class="fc"><i class="no-highlight">122</i>&nbsp;        table2.row();</b>
+<b class="fc"><i class="no-highlight">123</i>&nbsp;        table2.add(pointsText).width(32).height(32).padTop(6).padRight(90);</b>
+<b class="fc"><i class="no-highlight">124</i>&nbsp;        table2.row();</b>
+<i class="no-highlight">125</i>&nbsp;
+<i class="no-highlight">126</i>&nbsp;        //table2.add(powerUp).width(40).height(40).padTop(40).padRight(60);
+<i class="no-highlight">127</i>&nbsp;
+<i class="no-highlight">128</i>&nbsp;
+<b class="fc"><i class="no-highlight">129</i>&nbsp;        table1.add(healthLabel).padTop(20).top().right().padRight(40);</b>
+<b class="fc"><i class="no-highlight">130</i>&nbsp;        table1.row();</b>
+<b class="fc"><i class="no-highlight">131</i>&nbsp;        table1.add(coinLabel).padTop(20).top().right().padRight(40);</b>
+<b class="fc"><i class="no-highlight">132</i>&nbsp;        table1.row();</b>
+<b class="fc"><i class="no-highlight">133</i>&nbsp;        table1.add(scoreLabel).padTop(22).top().right().padRight(40);</b>
+<i class="no-highlight">134</i>&nbsp;
+<i class="no-highlight">135</i>&nbsp;
+<b class="fc"><i class="no-highlight">136</i>&nbsp;        stage.addActor(table3);</b>
+<b class="fc"><i class="no-highlight">137</i>&nbsp;        stage.addActor(table2);</b>
+<b class="fc"><i class="no-highlight">138</i>&nbsp;        stage.addActor(table1);</b>
+<b class="fc"><i class="no-highlight">139</i>&nbsp;        stage.addActor(powerUp);</b>
+<i class="no-highlight">140</i>&nbsp;
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        PowerupTimer = 0f;</b>
+<i class="no-highlight">142</i>&nbsp;    }
+<i class="no-highlight">143</i>&nbsp;
+<i class="no-highlight">144</i>&nbsp;    /**
+<i class="no-highlight">145</i>&nbsp;     * Updates the state of the hud
+<i class="no-highlight">146</i>&nbsp;     *
+<i class="no-highlight">147</i>&nbsp;     * @param dt Delta time (elapsed time since last game tick)
+<i class="no-highlight">148</i>&nbsp;     */
+<i class="no-highlight">149</i>&nbsp;    public void update(float dt) {
+<b class="fc"><i class="no-highlight">150</i>&nbsp;        timeCount += dt;</b>
+<b class="fc"><i class="no-highlight">151</i>&nbsp;        Constant_timeCount += dt;</b>
+<b class="fc"><i class="no-highlight">152</i>&nbsp;        hpConstant_Time += dt;</b>
+<i class="no-highlight">153</i>&nbsp;        //Gdx.app.log(&quot;dt&quot;, String.valueOf(dt));
+<i class="no-highlight">154</i>&nbsp;        //Gdx.app.log(&quot;time&quot;, String.valueOf(Constant_timeCount));
+<b class="fc"><i class="no-highlight">155</i>&nbsp;        coinLabel.setText(String.format(&quot;%03d&quot;, coins));</b>
+<b class="fc"><i class="no-highlight">156</i>&nbsp;        if(timeCount &gt;= 1) {</b>
+<i class="no-highlight">157</i>&nbsp;            //Regen health every second
+<b class="fc"><i class="no-highlight">158</i>&nbsp;            if(hpConstant_Time &gt;= 3) {</b>
+<b class="fc"><i class="no-highlight">159</i>&nbsp;                if (health != GameScreen.getDifficulty().getHP()) {</b>
+<b class="fc"><i class="no-highlight">160</i>&nbsp;                    health += 1;</b>
+<b class="fc"><i class="no-highlight">161</i>&nbsp;                    healthLabel.setText(String.format(&quot;%02d&quot;, health));</b>
+<b class="fc"><i class="no-highlight">162</i>&nbsp;                    hpConstant_Time = 0;</b>
+<i class="no-highlight">163</i>&nbsp;                }
+<i class="no-highlight">164</i>&nbsp;            }
+<i class="no-highlight">165</i>&nbsp;            //Gain point every second
+<b class="fc"><i class="no-highlight">166</i>&nbsp;            score += 5;</b>
+<b class="fc"><i class="no-highlight">167</i>&nbsp;            scoreLabel.setText(String.format(&quot;%03d&quot;, score));</b>
+<b class="fc"><i class="no-highlight">168</i>&nbsp;            timeCount = 0;</b>
+<i class="no-highlight">169</i>&nbsp;
+<i class="no-highlight">170</i>&nbsp;            //Check if a points boundary is met
+<b class="fc"><i class="no-highlight">171</i>&nbsp;            SkillTree.pointsCheck(score, coins);</b>
+<i class="no-highlight">172</i>&nbsp;            //Gdx.app.log(&quot;dt&quot;, String.valueOf(dt));
+<i class="no-highlight">173</i>&nbsp;            //Gdx.app.log(&quot;time&quot;, String.valueOf(timeCount));
+<i class="no-highlight">174</i>&nbsp;            // PowerUp
+<i class="no-highlight">175</i>&nbsp;
+<i class="no-highlight">176</i>&nbsp;        }
+<i class="no-highlight">177</i>&nbsp;
+<i class="no-highlight">178</i>&nbsp;        // TODO Fix error of powerups not lasting the full 15 seconds, after picking up a new powerup
+<i class="no-highlight">179</i>&nbsp;        // TODO maybe make it not possible to pick up a new powerup... basicaly like a cool down timer
+<b class="fc"><i class="no-highlight">180</i>&nbsp;        if (PowerupTimerBool == true){</b>
+<b class="fc"><i class="no-highlight">181</i>&nbsp;            if (PowerupTimer == 0f){</b>
+<b class="fc"><i class="no-highlight">182</i>&nbsp;                PowerupTimer = Constant_timeCount;</b>
+<i class="no-highlight">183</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">184</i>&nbsp;            Integer PowerupTime = 15;</b>
+<b class="fc"><i class="no-highlight">185</i>&nbsp;            if (Constant_timeCount &gt; PowerupTimer + PowerupTime){</b>
+<i class="no-highlight">186</i>&nbsp;                // Remove powerup abilities
+<i class="no-highlight">187</i>&nbsp;                // Respawn that powerup
+<b class="fc"><i class="no-highlight">188</i>&nbsp;                GameScreen.getDifficulty().PreviousPowerupStats();</b>
+<b class="fc"><i class="no-highlight">189</i>&nbsp;                PowerupPic = new Texture(&quot;blank.png&quot;);</b>
+<b class="fc"><i class="no-highlight">190</i>&nbsp;                powerUp = new Image(PowerupPic);</b>
+<b class="fc"><i class="no-highlight">191</i>&nbsp;                powerUp.setFillParent(false);</b>
+<b class="fc"><i class="no-highlight">192</i>&nbsp;                powerUp.setScale(0.3f,0.3f );</b>
+<b class="fc"><i class="no-highlight">193</i>&nbsp;                stage.addActor(powerUp);</b>
+<b class="fc"><i class="no-highlight">194</i>&nbsp;                PowerupTimer = 0f;</b>
+<b class="fc"><i class="no-highlight">195</i>&nbsp;                PowerupTimerBool = false;</b>
+<b class="fc"><i class="no-highlight">196</i>&nbsp;                Gdx.app.log(&quot;dt&quot;, &quot;Back to normal&quot;);</b>
+<i class="no-highlight">197</i>&nbsp;            }
+<i class="no-highlight">198</i>&nbsp;        }
+<i class="no-highlight">199</i>&nbsp;    }
+<i class="no-highlight">200</i>&nbsp;
+<i class="no-highlight">201</i>&nbsp;    /**
+<i class="no-highlight">202</i>&nbsp;     * Changes health by value increase
+<i class="no-highlight">203</i>&nbsp;     *
+<i class="no-highlight">204</i>&nbsp;     * @param value Increase to health
+<i class="no-highlight">205</i>&nbsp;     */
+<i class="no-highlight">206</i>&nbsp;    public static void changeHealth(int value) {
+<i class="no-highlight">207</i>&nbsp;
+<b class="fc"><i class="no-highlight">208</i>&nbsp;        if (health + value &gt; GameScreen.getDifficulty().getHP()){</b>
+<b class="nc"><i class="no-highlight">209</i>&nbsp;            health = GameScreen.getDifficulty().getHP();</b>
+<i class="no-highlight">210</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">211</i>&nbsp;            health += value;</b>
+<i class="no-highlight">212</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">213</i>&nbsp;        healthLabel.setText(String.format(&quot;%02d&quot;, health));</b>
+<i class="no-highlight">214</i>&nbsp;    }
+<i class="no-highlight">215</i>&nbsp;
+<i class="no-highlight">216</i>&nbsp;
+<i class="no-highlight">217</i>&nbsp;
+<i class="no-highlight">218</i>&nbsp;    /**
+<i class="no-highlight">219</i>&nbsp;     * Changes coins by value increase
+<i class="no-highlight">220</i>&nbsp;     *
+<i class="no-highlight">221</i>&nbsp;     * @param value Increase to coins
+<i class="no-highlight">222</i>&nbsp;     */
+<i class="no-highlight">223</i>&nbsp;    public static void changeCoins(int value) {
+<b class="fc"><i class="no-highlight">224</i>&nbsp;        if (value &gt; 0) {</b>
+<b class="fc"><i class="no-highlight">225</i>&nbsp;            coins += value * coinMulti;</b>
+<b class="fc"><i class="no-highlight">226</i>&nbsp;            coinLabel.setText(String.format(&quot;%03d&quot;, coins));</b>
+<i class="no-highlight">227</i>&nbsp;        }
+<i class="no-highlight">228</i>&nbsp;    }
+<i class="no-highlight">229</i>&nbsp;
+<i class="no-highlight">230</i>&nbsp;    /**
+<i class="no-highlight">231</i>&nbsp;     * Changes points by value increase
+<i class="no-highlight">232</i>&nbsp;     *
+<i class="no-highlight">233</i>&nbsp;     * @param value Increase to points
+<i class="no-highlight">234</i>&nbsp;     */
+<i class="no-highlight">235</i>&nbsp;    public static void changePoints(int value) {
+<b class="fc"><i class="no-highlight">236</i>&nbsp;        score += value;</b>
+<b class="fc"><i class="no-highlight">237</i>&nbsp;        scoreLabel.setText(String.format(&quot;%03d&quot;, score));</b>
+<i class="no-highlight">238</i>&nbsp;        //Check if a points boundary is met
+<b class="fc"><i class="no-highlight">239</i>&nbsp;        SkillTree.pointsCheck(score, coins);</b>
+<i class="no-highlight">240</i>&nbsp;    }
+<i class="no-highlight">241</i>&nbsp;
+<i class="no-highlight">242</i>&nbsp;    /**
+<i class="no-highlight">243</i>&nbsp;     *
+<i class="no-highlight">244</i>&nbsp;     */
+<i class="no-highlight">245</i>&nbsp;    public static void ChangePowerUpImage(Integer type){
+<b class="fc"><i class="no-highlight">246</i>&nbsp;        PowerUpType= type;</b>
+<b class="fc"><i class="no-highlight">247</i>&nbsp;        Gdx.app.log(&quot;time&quot;, String.valueOf(type));</b>
+<b class="fc"><i class="no-highlight">248</i>&nbsp;        if (PowerUpType == 0) {</b>
+<b class="nc"><i class="no-highlight">249</i>&nbsp;            PowerupPic = new Texture(&quot;Ammo.png&quot;);</b>
+<i class="no-highlight">250</i>&nbsp;
+<b class="fc"><i class="no-highlight">251</i>&nbsp;        } else if (PowerUpType == 1){</b>
+<b class="nc"><i class="no-highlight">252</i>&nbsp;            PowerupPic = new Texture(&quot;Lightning.png&quot;);</b>
+<b class="fc"><i class="no-highlight">253</i>&nbsp;        } else if (PowerUpType == 2){</b>
+<b class="fc"><i class="no-highlight">254</i>&nbsp;            PowerupPic = new Texture(&quot;Money.png&quot;);</b>
+<b class="nc"><i class="no-highlight">255</i>&nbsp;        } else if (PowerUpType == 3){</b>
+<b class="nc"><i class="no-highlight">256</i>&nbsp;            PowerupPic = new Texture(&quot;Repair.png&quot;);</b>
+<b class="nc"><i class="no-highlight">257</i>&nbsp;        } else if (PowerUpType == 4){</b>
+<b class="nc"><i class="no-highlight">258</i>&nbsp;            PowerupPic = new Texture(&quot;Star.png&quot;);</b>
+<i class="no-highlight">259</i>&nbsp;        }
+<i class="no-highlight">260</i>&nbsp;
+<b class="fc"><i class="no-highlight">261</i>&nbsp;        powerUp = new Image(PowerupPic);</b>
+<i class="no-highlight">262</i>&nbsp;        //
+<i class="no-highlight">263</i>&nbsp;        //powerUp.toFront();
+<b class="fc"><i class="no-highlight">264</i>&nbsp;        powerUp.setFillParent(false);</b>
+<b class="fc"><i class="no-highlight">265</i>&nbsp;        powerUp.setFillParent(false);</b>
+<i class="no-highlight">266</i>&nbsp;        //Size of powerup On screen
+<b class="fc"><i class="no-highlight">267</i>&nbsp;        powerUp.setScale(0.3f,0.3f );</b>
+<i class="no-highlight">268</i>&nbsp;
+<i class="no-highlight">269</i>&nbsp;        //powerUp.setScale(Gdx.graphics.getWidth()*03f,Gdx.graphics.getHeight() *3f );
+<b class="fc"><i class="no-highlight">270</i>&nbsp;        stage.addActor(powerUp);</b>
+<b class="fc"><i class="no-highlight">271</i>&nbsp;        PowerupTimerBool = true;</b>
+<i class="no-highlight">272</i>&nbsp;
+<i class="no-highlight">273</i>&nbsp;    }
+<i class="no-highlight">274</i>&nbsp;
+<i class="no-highlight">275</i>&nbsp;    public static void SubtractCoin(Integer value){
+<b class="nc"><i class="no-highlight">276</i>&nbsp;        coins -= value;</b>
+<i class="no-highlight">277</i>&nbsp;    }
+<i class="no-highlight">278</i>&nbsp;
+<i class="no-highlight">279</i>&nbsp;    /**
+<i class="no-highlight">280</i>&nbsp;     * Changes health by value factor
+<i class="no-highlight">281</i>&nbsp;     *
+<i class="no-highlight">282</i>&nbsp;     * @param value Factor of coin increase
+<i class="no-highlight">283</i>&nbsp;     */
+<i class="no-highlight">284</i>&nbsp;    public static void changeCoinsMulti(int value) {
+<b class="nc"><i class="no-highlight">285</i>&nbsp;        coinMulti = coinMulti * value;</b>
+<i class="no-highlight">286</i>&nbsp;    }
+<i class="no-highlight">287</i>&nbsp;
+<i class="no-highlight">288</i>&nbsp;    /**
+<i class="no-highlight">289</i>&nbsp;     * Changes the camera size, Scales the hud to match the camera
+<i class="no-highlight">290</i>&nbsp;     *
+<i class="no-highlight">291</i>&nbsp;     * @param width the width of the viewable area
+<i class="no-highlight">292</i>&nbsp;     * @param height the height of the viewable area
+<i class="no-highlight">293</i>&nbsp;     */
+<i class="no-highlight">294</i>&nbsp;    public static void resize(int width, int height){
+<b class="fc"><i class="no-highlight">295</i>&nbsp;        stage.getViewport().update(width, height, true);</b>
+<i class="no-highlight">296</i>&nbsp;
+<i class="no-highlight">297</i>&nbsp;    }
+<i class="no-highlight">298</i>&nbsp;
+<i class="no-highlight">299</i>&nbsp;    /**
+<i class="no-highlight">300</i>&nbsp;     * Returns health value
+<i class="no-highlight">301</i>&nbsp;     *
+<i class="no-highlight">302</i>&nbsp;     * @return health : returns health value
+<i class="no-highlight">303</i>&nbsp;     */
+<i class="no-highlight">304</i>&nbsp;    public static Integer getHealth(){
+<b class="fc"><i class="no-highlight">305</i>&nbsp;        return health;</b>
+<i class="no-highlight">306</i>&nbsp;    }
+<i class="no-highlight">307</i>&nbsp;
+<i class="no-highlight">308</i>&nbsp;    /**
+<i class="no-highlight">309</i>&nbsp;     * (Not Used)
+<i class="no-highlight">310</i>&nbsp;     * Returns coins value
+<i class="no-highlight">311</i>&nbsp;     *
+<i class="no-highlight">312</i>&nbsp;     * @return health : returns coins value
+<i class="no-highlight">313</i>&nbsp;     */
+<i class="no-highlight">314</i>&nbsp;    public static Integer getCoins(){
+<b class="nc"><i class="no-highlight">315</i>&nbsp;        return coins;</b>
+<i class="no-highlight">316</i>&nbsp;    }
+<i class="no-highlight">317</i>&nbsp;
+<i class="no-highlight">318</i>&nbsp;    /**
+<i class="no-highlight">319</i>&nbsp;     * Disposes game data
+<i class="no-highlight">320</i>&nbsp;     */
+<i class="no-highlight">321</i>&nbsp;    @Override
+<i class="no-highlight">322</i>&nbsp;    public void dispose() {
+<i class="no-highlight">323</i>&nbsp;    }
+<i class="no-highlight">324</i>&nbsp;}
+<i class="no-highlight">325</i>&nbsp;
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-03 22:13</div>
+</div>
+</body>
+</html>

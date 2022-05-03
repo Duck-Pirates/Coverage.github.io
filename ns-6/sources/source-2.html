@@ -1,0 +1,1041 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > GameScreen</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mygdx.pirategame.screens</a>
+</div>
+
+<h1>Coverage Summary for Class: GameScreen (com.mygdx.pirategame.screens)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GameScreen</td>
+<td class="coverageStat">
+  <span class="percent">
+    63.4%
+  </span>
+  <span class="absValue">
+    (26/41)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.2%
+  </span>
+  <span class="absValue">
+    (253/297)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GameScreen$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$6</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GameScreen$7</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    69.1%
+  </span>
+  <span class="absValue">
+    (38/55)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.2%
+  </span>
+  <span class="absValue">
+    (271/318)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.mygdx.pirategame.screens;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.DEATH;
+<i class="no-highlight">4</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.MENU;
+<i class="no-highlight">5</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.PPM;
+<i class="no-highlight">6</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.SKILL;
+<i class="no-highlight">7</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.VICTORY;
+<i class="no-highlight">8</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.xBase;
+<i class="no-highlight">9</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.xCap;
+<i class="no-highlight">10</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.yBase;
+<i class="no-highlight">11</i>&nbsp;import static com.mygdx.pirategame.configs.Constants.yCap;
+<i class="no-highlight">12</i>&nbsp;
+<i class="no-highlight">13</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">14</i>&nbsp;import java.util.Arrays;
+<i class="no-highlight">15</i>&nbsp;import java.util.HashMap;
+<i class="no-highlight">16</i>&nbsp;import java.util.Random;
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;import com.badlogic.gdx.Gdx;
+<i class="no-highlight">19</i>&nbsp;import com.badlogic.gdx.Input;
+<i class="no-highlight">20</i>&nbsp;import com.badlogic.gdx.Screen;
+<i class="no-highlight">21</i>&nbsp;import com.badlogic.gdx.ai.GdxAI;
+<i class="no-highlight">22</i>&nbsp;import com.badlogic.gdx.graphics.GL20;
+<i class="no-highlight">23</i>&nbsp;import com.badlogic.gdx.graphics.OrthographicCamera;
+<i class="no-highlight">24</i>&nbsp;import com.badlogic.gdx.maps.tiled.TiledMap;
+<i class="no-highlight">25</i>&nbsp;import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+<i class="no-highlight">26</i>&nbsp;import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+<i class="no-highlight">27</i>&nbsp;import com.badlogic.gdx.math.Vector2;
+<i class="no-highlight">28</i>&nbsp;import com.badlogic.gdx.physics.box2d.Body;
+<i class="no-highlight">29</i>&nbsp;import com.badlogic.gdx.physics.box2d.World;
+<i class="no-highlight">30</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.Actor;
+<i class="no-highlight">31</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.Stage;
+<i class="no-highlight">32</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+<i class="no-highlight">33</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.Table;
+<i class="no-highlight">34</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+<i class="no-highlight">35</i>&nbsp;import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+<i class="no-highlight">36</i>&nbsp;import com.badlogic.gdx.utils.Array;
+<i class="no-highlight">37</i>&nbsp;import com.badlogic.gdx.utils.viewport.ScreenViewport;
+<i class="no-highlight">38</i>&nbsp;import com.badlogic.gdx.utils.viewport.Viewport;
+<i class="no-highlight">39</i>&nbsp;import com.mygdx.pirategame.PirateGame;
+<i class="no-highlight">40</i>&nbsp;import com.mygdx.pirategame.configs.Difficulty;
+<i class="no-highlight">41</i>&nbsp;import com.mygdx.pirategame.entities.Cloud;
+<i class="no-highlight">42</i>&nbsp;import com.mygdx.pirategame.entities.Coin;
+<i class="no-highlight">43</i>&nbsp;import com.mygdx.pirategame.entities.College;
+<i class="no-highlight">44</i>&nbsp;import com.mygdx.pirategame.entities.EnemyShip;
+<i class="no-highlight">45</i>&nbsp;import com.mygdx.pirategame.entities.Player;
+<i class="no-highlight">46</i>&nbsp;import com.mygdx.pirategame.entities.Powerup;
+<i class="no-highlight">47</i>&nbsp;import com.mygdx.pirategame.entities.SteerableEntity;
+<i class="no-highlight">48</i>&nbsp;import com.mygdx.pirategame.entities.Tornado;
+<i class="no-highlight">49</i>&nbsp;import com.mygdx.pirategame.world.AvailableSpawn;
+<i class="no-highlight">50</i>&nbsp;import com.mygdx.pirategame.world.WorldContactListener;
+<i class="no-highlight">51</i>&nbsp;import com.mygdx.pirategame.world.WorldCreator;
+<i class="no-highlight">52</i>&nbsp;
+<i class="no-highlight">53</i>&nbsp;
+<i class="no-highlight">54</i>&nbsp;/**
+<i class="no-highlight">55</i>&nbsp; * Game Screen
+<i class="no-highlight">56</i>&nbsp; * Class to generate the various screens used to play the game.
+<i class="no-highlight">57</i>&nbsp; * Instantiates all screen types and displays current screen.
+<i class="no-highlight">58</i>&nbsp; *
+<i class="no-highlight">59</i>&nbsp; *@author Ethan Alabaster, Adam Crook, Joe Dickinson, Sam Pearson, Tom Perry, Edward Poulter
+<i class="no-highlight">60</i>&nbsp; *@version 1.0
+<i class="no-highlight">61</i>&nbsp; */
+<b class="fc"><i class="no-highlight">62</i>&nbsp;public class GameScreen implements Screen {</b>
+<b class="fc"><i class="no-highlight">63</i>&nbsp;    private static float maxSpeed = 2.5f;</b>
+<b class="fc"><i class="no-highlight">64</i>&nbsp;    private static float accel = 0.05f;</b>
+<i class="no-highlight">65</i>&nbsp;    private float stateTime;
+<i class="no-highlight">66</i>&nbsp;
+<i class="no-highlight">67</i>&nbsp;    private static PirateGame game;
+<i class="no-highlight">68</i>&nbsp;    private OrthographicCamera camera;
+<i class="no-highlight">69</i>&nbsp;    private Viewport viewport;
+<i class="no-highlight">70</i>&nbsp;    private final Stage stage;
+<i class="no-highlight">71</i>&nbsp;
+<i class="no-highlight">72</i>&nbsp;    private TmxMapLoader maploader;
+<i class="no-highlight">73</i>&nbsp;    private TiledMap map;
+<i class="no-highlight">74</i>&nbsp;    private OrthogonalTiledMapRenderer renderer;
+<i class="no-highlight">75</i>&nbsp;
+<i class="no-highlight">76</i>&nbsp;    private World world;
+<i class="no-highlight">77</i>&nbsp;    private static Difficulty difficulty;
+<i class="no-highlight">78</i>&nbsp;
+<b class="fc"><i class="no-highlight">79</i>&nbsp;    private static ArrayList&lt;College&gt; colleges = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;    private static ArrayList&lt;SteerableEntity&gt; ships = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">81</i>&nbsp;    private static ArrayList&lt;Coin&gt; coins = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">82</i>&nbsp;    private AvailableSpawn invalidSpawn = new AvailableSpawn();</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;    private HashMap&lt;Integer, ArrayList&lt;Integer&gt;&gt; invalidSpawnClouds = new HashMap&lt;&gt;();</b>
+<i class="no-highlight">84</i>&nbsp;    private Hud hud;
+<b class="fc"><i class="no-highlight">85</i>&nbsp;    private static ArrayList&lt;Powerup&gt; powerups = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">86</i>&nbsp;    private static ArrayList&lt;Cloud&gt; clouds = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">87</i>&nbsp;    private static ArrayList&lt;Tornado&gt; Tornadoes = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">88</i>&nbsp;
+<i class="no-highlight">89</i>&nbsp;    private static final int GAME_RUNNING = 0;
+<i class="no-highlight">90</i>&nbsp;    private static final int GAME_PAUSED = 1;
+<i class="no-highlight">91</i>&nbsp;    private static int gameStatus;
+<i class="no-highlight">92</i>&nbsp;
+<i class="no-highlight">93</i>&nbsp;    private Table pauseTable;
+<i class="no-highlight">94</i>&nbsp;    private Table table;
+<i class="no-highlight">95</i>&nbsp;
+<b class="fc"><i class="no-highlight">96</i>&nbsp;    private Random rand = new Random();</b>
+<i class="no-highlight">97</i>&nbsp;    private Float TempTime;
+<i class="no-highlight">98</i>&nbsp;
+<i class="no-highlight">99</i>&nbsp;
+<i class="no-highlight">100</i>&nbsp;    /**
+<i class="no-highlight">101</i>&nbsp;     * Initialises the Game Screen,
+<i class="no-highlight">102</i>&nbsp;     * generates the world data and data for entities that exist upon it,
+<i class="no-highlight">103</i>&nbsp;     * @param game passes game data to current class,
+<i class="no-highlight">104</i>&nbsp;     */
+<b class="fc"><i class="no-highlight">105</i>&nbsp;    public GameScreen(PirateGame game, Difficulty difficulty){</b>
+<b class="fc"><i class="no-highlight">106</i>&nbsp;        gameStatus = GAME_RUNNING;</b>
+<b class="fc"><i class="no-highlight">107</i>&nbsp;        GameScreen.setGame(game);</b>
+<i class="no-highlight">108</i>&nbsp;        // Setting the difficulty, that will be changed based on the getPlayer()&#39;s choice at the start of the game
+<b class="fc"><i class="no-highlight">109</i>&nbsp;        GameScreen.difficulty = difficulty;</b>
+<i class="no-highlight">110</i>&nbsp;        // Initialising camera and extendable viewport for viewing game
+<b class="fc"><i class="no-highlight">111</i>&nbsp;        camera = new OrthographicCamera();</b>
+<b class="fc"><i class="no-highlight">112</i>&nbsp;        camera.zoom = 0.03f;</b>
+<b class="fc"><i class="no-highlight">113</i>&nbsp;        viewport = new ScreenViewport(camera);</b>
+<b class="fc"><i class="no-highlight">114</i>&nbsp;        camera.position.set(viewport.getWorldWidth() / 2, viewport.getWorldHeight() / 2, 0);</b>
+<i class="no-highlight">115</i>&nbsp;
+<i class="no-highlight">116</i>&nbsp;        // Initialize a hud
+<b class="fc"><i class="no-highlight">117</i>&nbsp;        hud = new Hud(game.getBatch(), this);</b>
+<i class="no-highlight">118</i>&nbsp;
+<i class="no-highlight">119</i>&nbsp;        // Initialising box2d physics
+<b class="fc"><i class="no-highlight">120</i>&nbsp;        world = new World(new Vector2(0,0), true);</b>
+<i class="no-highlight">121</i>&nbsp;
+<i class="no-highlight">122</i>&nbsp;        // making the Tiled tmx file render as a map
+<b class="fc"><i class="no-highlight">123</i>&nbsp;        maploader = new TmxMapLoader();</b>
+<b class="fc"><i class="no-highlight">124</i>&nbsp;        map = maploader.load(&quot;map.tmx&quot;);</b>
+<b class="fc"><i class="no-highlight">125</i>&nbsp;        renderer = new OrthogonalTiledMapRenderer(map, 1 / PPM);</b>
+<b class="fc"><i class="no-highlight">126</i>&nbsp;        new WorldCreator(this);</b>
+<i class="no-highlight">127</i>&nbsp;
+<i class="no-highlight">128</i>&nbsp;        // Setting up contact listener for collisions
+<b class="fc"><i class="no-highlight">129</i>&nbsp;        world.setContactListener(new WorldContactListener(this));</b>
+<i class="no-highlight">130</i>&nbsp;
+<i class="no-highlight">131</i>&nbsp;        // Spawning enemy ship and coin. x and y is spawn location
+<b class="fc"><i class="no-highlight">132</i>&nbsp;        colleges.add(new College(this, &quot;alcuin&quot;, 3872 / PPM, 4230 / PPM, 0));</b>
+<b class="fc"><i class="no-highlight">133</i>&nbsp;        colleges.add(new College(this, &quot;anne_lister&quot;, 5855 / PPM, 6470 / PPM, difficulty.getMaxCollegeShips()));</b>
+<b class="fc"><i class="no-highlight">134</i>&nbsp;        colleges.add(new College(this, &quot;constantine&quot;, 9055 / PPM, 9860 / PPM, difficulty.getMaxCollegeShips()));</b>
+<b class="fc"><i class="no-highlight">135</i>&nbsp;        colleges.add(new College(this, &quot;goodricke&quot;, 4128 / PPM, 12936 / PPM, difficulty.getMaxCollegeShips()));</b>
+<b class="fc"><i class="no-highlight">136</i>&nbsp;        colleges.add(new College(this, &quot;halifax&quot;, 12768 / PPM, 14408 / PPM, difficulty.getMaxCollegeShips()));</b>
+<b class="fc"><i class="no-highlight">137</i>&nbsp;        colleges.add(new College(this, &quot;langwith&quot;, 12576 / PPM, 6920 / PPM, difficulty.getMaxCollegeShips()));</b>
+<b class="fc"><i class="no-highlight">138</i>&nbsp;        colleges.add(new College(this, &quot;vanbrugh&quot;, 12896 / PPM, 3783 / PPM, difficulty.getMaxCollegeShips()));</b>
+<i class="no-highlight">139</i>&nbsp;
+<b class="fc"><i class="no-highlight">140</i>&nbsp;        ships = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">141</i>&nbsp;        ships.add(new Player(this));</b>
+<b class="fc"><i class="no-highlight">142</i>&nbsp;        ships.addAll(colleges.get(0).getFleet());</b>
+<b class="fc"><i class="no-highlight">143</i>&nbsp;        ships.addAll(colleges.get(1).getFleet());</b>
+<b class="fc"><i class="no-highlight">144</i>&nbsp;        ships.addAll(colleges.get(2).getFleet());</b>
+<b class="fc"><i class="no-highlight">145</i>&nbsp;        ships.addAll(colleges.get(3).getFleet());</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;        ships.addAll(colleges.get(4).getFleet());</b>
+<b class="fc"><i class="no-highlight">147</i>&nbsp;        ships.addAll(colleges.get(5).getFleet());</b>
+<b class="fc"><i class="no-highlight">148</i>&nbsp;        ships.addAll(colleges.get(6).getFleet());</b>
+<i class="no-highlight">149</i>&nbsp;
+<i class="no-highlight">150</i>&nbsp;        //Random ships
+<i class="no-highlight">151</i>&nbsp;        Boolean validLoc;
+<b class="fc"><i class="no-highlight">152</i>&nbsp;        int a = 0;</b>
+<b class="fc"><i class="no-highlight">153</i>&nbsp;        int b = 0;</b>
+<b class="fc"><i class="no-highlight">154</i>&nbsp;        for (int i = 0; i &lt; 10; i++) {</b>
+<b class="fc"><i class="no-highlight">155</i>&nbsp;            validLoc = false;</b>
+<b class="fc"><i class="no-highlight">156</i>&nbsp;            while (!validLoc) {</b>
+<i class="no-highlight">157</i>&nbsp;                //Get random x and y coords
+<b class="fc"><i class="no-highlight">158</i>&nbsp;                a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">159</i>&nbsp;                b = rand.nextInt(yCap - yBase) + yBase;</b>
+<i class="no-highlight">160</i>&nbsp;                //Check if valid
+<b class="fc"><i class="no-highlight">161</i>&nbsp;                validLoc = AvailableSpawn.add(a, b);</b>
+<i class="no-highlight">162</i>&nbsp;            }
+<i class="no-highlight">163</i>&nbsp;            //Add a ship at the random coords
+<b class="fc"><i class="no-highlight">164</i>&nbsp;            getShips().add(new EnemyShip(this, a, b, &quot;unaligned&quot;));</b>
+<i class="no-highlight">165</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">166</i>&nbsp;        setTempTime(0f);</b>
+<i class="no-highlight">167</i>&nbsp;        //Random coins
+<b class="fc"><i class="no-highlight">168</i>&nbsp;        coins = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">169</i>&nbsp;        for (int i = 0; i &lt; 100; i++) {</b>
+<b class="fc"><i class="no-highlight">170</i>&nbsp;            validLoc = false;</b>
+<b class="fc"><i class="no-highlight">171</i>&nbsp;            while (!validLoc) {</b>
+<i class="no-highlight">172</i>&nbsp;                //Get random x and y coords
+<b class="fc"><i class="no-highlight">173</i>&nbsp;                a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">174</i>&nbsp;                b = rand.nextInt(yCap - yBase) + yBase;</b>
+<i class="no-highlight">175</i>&nbsp;
+<i class="no-highlight">176</i>&nbsp;                //Check if valid
+<b class="fc"><i class="no-highlight">177</i>&nbsp;                validLoc = AvailableSpawn.add(a, b);</b>
+<i class="no-highlight">178</i>&nbsp;            }
+<i class="no-highlight">179</i>&nbsp;            //Add a coins at the random coords
+<b class="fc"><i class="no-highlight">180</i>&nbsp;            coins.add(new Coin(this, a, b));</b>
+<i class="no-highlight">181</i>&nbsp;        }
+<i class="no-highlight">182</i>&nbsp;
+<i class="no-highlight">183</i>&nbsp;        //Spawn powerups
+<b class="fc"><i class="no-highlight">184</i>&nbsp;        powerups = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">185</i>&nbsp;        for (int i = 0; i &lt; 5; i++) {</b>
+<b class="fc"><i class="no-highlight">186</i>&nbsp;            validLoc = false;</b>
+<b class="fc"><i class="no-highlight">187</i>&nbsp;            while (!validLoc) {</b>
+<i class="no-highlight">188</i>&nbsp;                //Get random x and y coords
+<b class="fc"><i class="no-highlight">189</i>&nbsp;                a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">190</i>&nbsp;                b = rand.nextInt(yCap - yBase) + yBase;</b>
+<b class="fc"><i class="no-highlight">191</i>&nbsp;                validLoc = AvailableSpawn.add(a, b);</b>
+<i class="no-highlight">192</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">193</i>&nbsp;            powerups.add(new Powerup(this, a, b, i));</b>
+<i class="no-highlight">194</i>&nbsp;        }
+<i class="no-highlight">195</i>&nbsp;
+<b class="fc"><i class="no-highlight">196</i>&nbsp;        clouds = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">197</i>&nbsp;        for (int i = 0; i &lt; rand.nextInt(51-30)+30; i++) {</b>
+<b class="fc"><i class="no-highlight">198</i>&nbsp;            validLoc = false;</b>
+<b class="fc"><i class="no-highlight">199</i>&nbsp;            while (!validLoc) {</b>
+<i class="no-highlight">200</i>&nbsp;                //Get random x and y coords
+<b class="fc"><i class="no-highlight">201</i>&nbsp;                a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">202</i>&nbsp;                b = rand.nextInt(yCap - yBase) + yBase;</b>
+<b class="fc"><i class="no-highlight">203</i>&nbsp;                validLoc = checkGenPosClouds(a, b);</b>
+<i class="no-highlight">204</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">205</i>&nbsp;            clouds.add(new Cloud(this, a, b));</b>
+<i class="no-highlight">206</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">207</i>&nbsp;        Tornadoes = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">208</i>&nbsp;        for (int i = 0; i &lt; 20; i++) {</b>
+<b class="fc"><i class="no-highlight">209</i>&nbsp;            validLoc = false;</b>
+<b class="fc"><i class="no-highlight">210</i>&nbsp;            while (!validLoc) {</b>
+<i class="no-highlight">211</i>&nbsp;                //Get random x and y coords
+<b class="fc"><i class="no-highlight">212</i>&nbsp;                a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">213</i>&nbsp;                b = rand.nextInt(yCap - yBase) + yBase;</b>
+<b class="fc"><i class="no-highlight">214</i>&nbsp;                validLoc = AvailableSpawn.add(a, b);</b>
+<i class="no-highlight">215</i>&nbsp;            }
+<i class="no-highlight">216</i>&nbsp;            //Add a coins at the random coords
+<b class="fc"><i class="no-highlight">217</i>&nbsp;            Tornadoes.add(new Tornado(this, a, b, rand.nextInt(257-128)+128));</b>
+<i class="no-highlight">218</i>&nbsp;        }
+<i class="no-highlight">219</i>&nbsp;
+<i class="no-highlight">220</i>&nbsp;
+<i class="no-highlight">221</i>&nbsp;        //Setting stage
+<b class="fc"><i class="no-highlight">222</i>&nbsp;        stage = new Stage(new ScreenViewport());</b>
+<i class="no-highlight">223</i>&nbsp;    }
+<i class="no-highlight">224</i>&nbsp;
+<i class="no-highlight">225</i>&nbsp;    /**
+<i class="no-highlight">226</i>&nbsp;     * Updates the state of each object with delta time
+<i class="no-highlight">227</i>&nbsp;     *
+<i class="no-highlight">228</i>&nbsp;     * @param delta Delta time (elapsed time since last game tick)
+<i class="no-highlight">229</i>&nbsp;     */
+<i class="no-highlight">230</i>&nbsp;    public void update(float delta) {
+<i class="no-highlight">231</i>&nbsp;    	// Stepping the physics engine by time of 1 frame
+<b class="fc"><i class="no-highlight">232</i>&nbsp;        world.step(1 / 60f, 6, 2);</b>
+<b class="fc"><i class="no-highlight">233</i>&nbsp;        GdxAI.getTimepiece().update(delta);</b>
+<i class="no-highlight">234</i>&nbsp;
+<b class="fc"><i class="no-highlight">235</i>&nbsp;    	stateTime += delta;</b>
+<b class="fc"><i class="no-highlight">236</i>&nbsp;        setTempTime(getTempTime() + delta);</b>
+<i class="no-highlight">237</i>&nbsp;
+<b class="fc"><i class="no-highlight">238</i>&nbsp;        handleInput();</b>
+<b class="fc"><i class="no-highlight">239</i>&nbsp;        for(College college: getColleges()){</b>
+<b class="fc"><i class="no-highlight">240</i>&nbsp;        	if(!college.isDestroyed())</b>
+<b class="fc"><i class="no-highlight">241</i>&nbsp;        		college.update(delta);</b>
+<b class="fc"><i class="no-highlight">242</i>&nbsp;        }</b>
+<i class="no-highlight">243</i>&nbsp;
+<i class="no-highlight">244</i>&nbsp;        //Update ships
+<b class="fc"><i class="no-highlight">245</i>&nbsp;        for (SteerableEntity ship : getShips()) {</b>
+<b class="fc"><i class="no-highlight">246</i>&nbsp;        	if(!ship.isDestroyed())</b>
+<b class="fc"><i class="no-highlight">247</i>&nbsp;        		ship.update(delta);</b>
+<b class="fc"><i class="no-highlight">248</i>&nbsp;        }</b>
+<i class="no-highlight">249</i>&nbsp;
+<i class="no-highlight">250</i>&nbsp;        //Updates coin
+<b class="fc"><i class="no-highlight">251</i>&nbsp;        for (Coin coin: getCoins()) {</b>
+<b class="fc"><i class="no-highlight">252</i>&nbsp;        	if(!coin.isDestroyed())</b>
+<b class="fc"><i class="no-highlight">253</i>&nbsp;        		coin.update();</b>
+<b class="fc"><i class="no-highlight">254</i>&nbsp;        }</b>
+<i class="no-highlight">255</i>&nbsp;
+<i class="no-highlight">256</i>&nbsp;        //Updates powerups
+<b class="fc"><i class="no-highlight">257</i>&nbsp;        for (Powerup powerup: getPowerups()) {</b>
+<b class="fc"><i class="no-highlight">258</i>&nbsp;        	if(!powerup.isDestroyed())</b>
+<b class="fc"><i class="no-highlight">259</i>&nbsp;        		powerup.update();</b>
+<b class="fc"><i class="no-highlight">260</i>&nbsp;        }</b>
+<i class="no-highlight">261</i>&nbsp;
+<i class="no-highlight">262</i>&nbsp;        //Gdx.app.log(&quot;powerup&quot;, String.valueOf(ConstantTime));
+<i class="no-highlight">263</i>&nbsp;        //Add new powerup
+<i class="no-highlight">264</i>&nbsp;        //Gdx.app.log(&quot;x&quot;, String.valueOf(TempTime));
+<i class="no-highlight">265</i>&nbsp;
+<b class="fc"><i class="no-highlight">266</i>&nbsp;        if (getTempTime() &gt;= 29f){</b>
+<i class="no-highlight">267</i>&nbsp;            Boolean validLoc;
+<b class="fc"><i class="no-highlight">268</i>&nbsp;            int a = 0;</b>
+<b class="fc"><i class="no-highlight">269</i>&nbsp;            int b = 0;</b>
+<b class="fc"><i class="no-highlight">270</i>&nbsp;            for (int i = 0; i &lt; 5; i++) {</b>
+<b class="fc"><i class="no-highlight">271</i>&nbsp;                validLoc = false;</b>
+<b class="fc"><i class="no-highlight">272</i>&nbsp;                while (!validLoc) {</b>
+<i class="no-highlight">273</i>&nbsp;                    //Get random x and y coords
+<b class="fc"><i class="no-highlight">274</i>&nbsp;                    a = rand.nextInt(xCap - xBase) + xBase;</b>
+<b class="fc"><i class="no-highlight">275</i>&nbsp;                    b = rand.nextInt(yCap - yBase) + yBase;</b>
+<b class="fc"><i class="no-highlight">276</i>&nbsp;                    validLoc = AvailableSpawn.add(a, b);</b>
+<i class="no-highlight">277</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">278</i>&nbsp;                getPowerups().add(new Powerup(this, a, b, i));</b>
+<i class="no-highlight">279</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">280</i>&nbsp;            setTempTime(0f);</b>
+<i class="no-highlight">281</i>&nbsp;        }
+<i class="no-highlight">282</i>&nbsp;
+<i class="no-highlight">283</i>&nbsp;        //Updates clouds
+<b class="fc"><i class="no-highlight">284</i>&nbsp;        for (int i = 0; i &lt; clouds.size(); i++) {</b>
+<b class="fc"><i class="no-highlight">285</i>&nbsp;            clouds.get(i).update(delta);</b>
+<b class="fc"><i class="no-highlight">286</i>&nbsp;            if ((getPlayer().getX() &gt;= clouds.get(i).getX() - 2 &amp;&amp; getPlayer().getX() &lt;= clouds.get(i).getX() + 2) &amp;&amp; (getPlayer().getY() &gt;= clouds.get(i).getY() - 2 &amp;&amp; getPlayer().getY() &lt;= clouds.get(i).getY() + 2)){</b>
+<b class="fc"><i class="no-highlight">287</i>&nbsp;                clouds.get(i).changeAlpha();</b>
+<i class="no-highlight">288</i>&nbsp;            }
+<i class="no-highlight">289</i>&nbsp;            else{
+<b class="fc"><i class="no-highlight">290</i>&nbsp;                clouds.get(i).resetAlpha();</b>
+<i class="no-highlight">291</i>&nbsp;            }
+<i class="no-highlight">292</i>&nbsp;        }
+<i class="no-highlight">293</i>&nbsp;
+<b class="fc"><i class="no-highlight">294</i>&nbsp;        for (int i = 0; i &lt; Tornadoes.size(); i++) {</b>
+<b class="fc"><i class="no-highlight">295</i>&nbsp;            Tornado tornado = Tornadoes.get(i);</b>
+<b class="fc"><i class="no-highlight">296</i>&nbsp;            tornado.update(delta);</b>
+<b class="fc"><i class="no-highlight">297</i>&nbsp;            tornado.tornadoImpulse(getPlayer(), delta);</b>
+<i class="no-highlight">298</i>&nbsp;        }
+<i class="no-highlight">299</i>&nbsp;        //After a delay check if a college is destroyed. If not, it can fire
+<b class="fc"><i class="no-highlight">300</i>&nbsp;        if (stateTime &gt; 1) {</b>
+<b class="fc"><i class="no-highlight">301</i>&nbsp;            for(College college: getColleges()){</b>
+<b class="fc"><i class="no-highlight">302</i>&nbsp;                if(!college.isDestroyed() &amp;&amp; !(college.getCollege().equals(&quot;alcuin&quot;))){</b>
+<b class="fc"><i class="no-highlight">303</i>&nbsp;                    college.fire();</b>
+<i class="no-highlight">304</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">305</i>&nbsp;            }</b>
+<b class="fc"><i class="no-highlight">306</i>&nbsp;        stateTime = 0;</b>
+<i class="no-highlight">307</i>&nbsp;        }
+<i class="no-highlight">308</i>&nbsp;
+<b class="fc"><i class="no-highlight">309</i>&nbsp;        getHud().update(delta);</b>
+<i class="no-highlight">310</i>&nbsp;
+<i class="no-highlight">311</i>&nbsp;        // Centre camera on player boat
+<b class="fc"><i class="no-highlight">312</i>&nbsp;        camera.position.x = getPlayer().getPosition().x;</b>
+<b class="fc"><i class="no-highlight">313</i>&nbsp;        camera.position.y = getPlayer().getPosition().y;</b>
+<b class="fc"><i class="no-highlight">314</i>&nbsp;        camera.update();</b>
+<b class="fc"><i class="no-highlight">315</i>&nbsp;        renderer.setView(camera);</b>
+<i class="no-highlight">316</i>&nbsp;    }
+<i class="no-highlight">317</i>&nbsp;
+<i class="no-highlight">318</i>&nbsp;    /**
+<i class="no-highlight">319</i>&nbsp;     * Checks for input and performs an action
+<i class="no-highlight">320</i>&nbsp;     * Applies to keys &quot;W&quot; &quot;A&quot; &quot;S&quot; &quot;D&quot; &quot;E&quot; &quot;Esc&quot;
+<i class="no-highlight">321</i>&nbsp;     *
+<i class="no-highlight">322</i>&nbsp;     * Caps player velocity
+<i class="no-highlight">323</i>&nbsp;     *
+<i class="no-highlight">324</i>&nbsp;     */
+<i class="no-highlight">325</i>&nbsp;    public void handleInput() {
+<b class="fc"><i class="no-highlight">326</i>&nbsp;        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {</b>
+<b class="nc"><i class="no-highlight">327</i>&nbsp;            if(gameStatus == GAME_PAUSED) {</b>
+<b class="nc"><i class="no-highlight">328</i>&nbsp;                resume();</b>
+<b class="nc"><i class="no-highlight">329</i>&nbsp;                table.setVisible(true);</b>
+<b class="nc"><i class="no-highlight">330</i>&nbsp;                pauseTable.setVisible(false);</b>
+<i class="no-highlight">331</i>&nbsp;            }
+<i class="no-highlight">332</i>&nbsp;            else {
+<b class="nc"><i class="no-highlight">333</i>&nbsp;                table.setVisible(false);</b>
+<b class="nc"><i class="no-highlight">334</i>&nbsp;                pauseTable.setVisible(true);</b>
+<b class="nc"><i class="no-highlight">335</i>&nbsp;                pause();</b>
+<i class="no-highlight">336</i>&nbsp;            }
+<i class="no-highlight">337</i>&nbsp;        }
+<i class="no-highlight">338</i>&nbsp;    }
+<i class="no-highlight">339</i>&nbsp;
+<i class="no-highlight">340</i>&nbsp;    /**
+<i class="no-highlight">341</i>&nbsp;     * Renders the visual data for all objects
+<i class="no-highlight">342</i>&nbsp;     * Changes and renders new visual data for ships
+<i class="no-highlight">343</i>&nbsp;     *
+<i class="no-highlight">344</i>&nbsp;     * @param delta Delta time (elapsed time since last game tick)
+<i class="no-highlight">345</i>&nbsp;     */
+<i class="no-highlight">346</i>&nbsp;    @Override
+<i class="no-highlight">347</i>&nbsp;    public void render(float delta) {
+<b class="fc"><i class="no-highlight">348</i>&nbsp;        if (gameStatus == GAME_RUNNING) {</b>
+<b class="fc"><i class="no-highlight">349</i>&nbsp;            update(delta);</b>
+<i class="no-highlight">350</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">351</i>&nbsp;        else{ handleInput(); }</b>
+<i class="no-highlight">352</i>&nbsp;
+<b class="fc"><i class="no-highlight">353</i>&nbsp;        Gdx.gl.glClearColor(46/255f, 204/255f, 113/255f, 1);</b>
+<b class="fc"><i class="no-highlight">354</i>&nbsp;        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);</b>
+<b class="fc"><i class="no-highlight">355</i>&nbsp;        renderer.render();</b>
+<i class="no-highlight">356</i>&nbsp;
+<b class="fc"><i class="no-highlight">357</i>&nbsp;        getGame().getBatch().setProjectionMatrix(camera.combined);</b>
+<b class="fc"><i class="no-highlight">358</i>&nbsp;        getGame().getBatch().begin();</b>
+<i class="no-highlight">359</i>&nbsp;        // Order determines layering
+<i class="no-highlight">360</i>&nbsp;
+<i class="no-highlight">361</i>&nbsp;        //Renders coins
+<b class="fc"><i class="no-highlight">362</i>&nbsp;        for(Coin coin: getCoins()) {</b>
+<b class="fc"><i class="no-highlight">363</i>&nbsp;            coin.draw(getGame().getBatch());</b>
+<b class="fc"><i class="no-highlight">364</i>&nbsp;        }</b>
+<i class="no-highlight">365</i>&nbsp;
+<i class="no-highlight">366</i>&nbsp;        //Renders powerups
+<b class="fc"><i class="no-highlight">367</i>&nbsp;        for(Powerup powerup: getPowerups()) {</b>
+<b class="fc"><i class="no-highlight">368</i>&nbsp;            powerup.draw(getGame().getBatch());</b>
+<b class="fc"><i class="no-highlight">369</i>&nbsp;        }</b>
+<i class="no-highlight">370</i>&nbsp;
+<i class="no-highlight">371</i>&nbsp;
+<i class="no-highlight">372</i>&nbsp;        //Renders colleges
+<b class="fc"><i class="no-highlight">373</i>&nbsp;        getPlayer().draw(getGame().getBatch());</b>
+<i class="no-highlight">374</i>&nbsp;
+<b class="fc"><i class="no-highlight">375</i>&nbsp;        for (College college: getColleges()) {</b>
+<b class="fc"><i class="no-highlight">376</i>&nbsp;            college.draw(getGame().getBatch());</b>
+<b class="fc"><i class="no-highlight">377</i>&nbsp;        }</b>
+<i class="no-highlight">378</i>&nbsp;
+<b class="fc"><i class="no-highlight">379</i>&nbsp;        for(int i = 0; i&lt; Tornadoes.size(); i++) {</b>
+<b class="fc"><i class="no-highlight">380</i>&nbsp;            Tornadoes.get(i).draw(getGame().getBatch());</b>
+<i class="no-highlight">381</i>&nbsp;        }
+<i class="no-highlight">382</i>&nbsp;
+<i class="no-highlight">383</i>&nbsp;        //Updates all ships
+<b class="fc"><i class="no-highlight">384</i>&nbsp;        for (SteerableEntity ship: getShips()){</b>
+<b class="fc"><i class="no-highlight">385</i>&nbsp;            if (!ship.getCollege().equals(&quot;unaligned&quot;)) {</b>
+<i class="no-highlight">386</i>&nbsp;                //Flips a colleges allegence if their college is destroyed
+<b class="fc"><i class="no-highlight">387</i>&nbsp;                if (getCollege(ship.getCollege()).isDestroyed()) {</b>
+<b class="nc"><i class="no-highlight">388</i>&nbsp;                    ship.updateTexture(&quot;alcuin&quot;, &quot;alcuin_ship.png&quot;);</b>
+<i class="no-highlight">389</i>&nbsp;                }
+<i class="no-highlight">390</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">391</i>&nbsp;            ship.draw(getGame().getBatch());</b>
+<b class="fc"><i class="no-highlight">392</i>&nbsp;        }</b>
+<i class="no-highlight">393</i>&nbsp;
+<i class="no-highlight">394</i>&nbsp;        // Renders all the clouds on top of eerything else
+<b class="fc"><i class="no-highlight">395</i>&nbsp;        for(int i = 0; i &lt;clouds.size(); i++){</b>
+<b class="fc"><i class="no-highlight">396</i>&nbsp;            clouds.get(i).draw(getGame().getBatch());</b>
+<i class="no-highlight">397</i>&nbsp;        }
+<i class="no-highlight">398</i>&nbsp;
+<b class="fc"><i class="no-highlight">399</i>&nbsp;        getGame().getBatch().end();</b>
+<b class="fc"><i class="no-highlight">400</i>&nbsp;        Hud.stage.draw();</b>
+<b class="fc"><i class="no-highlight">401</i>&nbsp;        stage.act();</b>
+<b class="fc"><i class="no-highlight">402</i>&nbsp;        stage.draw();</b>
+<i class="no-highlight">403</i>&nbsp;        //Checks game over conditions
+<b class="fc"><i class="no-highlight">404</i>&nbsp;        gameOverCheck();</b>
+<i class="no-highlight">405</i>&nbsp;    }
+<i class="no-highlight">406</i>&nbsp;
+<i class="no-highlight">407</i>&nbsp;    /**
+<i class="no-highlight">408</i>&nbsp;     * Makes this the current screen for the game.
+<i class="no-highlight">409</i>&nbsp;     * Generates the buttons to be able to interact with what screen is being displayed.
+<i class="no-highlight">410</i>&nbsp;     * Creates the escape menu and pause button
+<i class="no-highlight">411</i>&nbsp;     */
+<i class="no-highlight">412</i>&nbsp;    @Override
+<i class="no-highlight">413</i>&nbsp;    public void show() {
+<b class="fc"><i class="no-highlight">414</i>&nbsp;        Gdx.input.setInputProcessor(stage);</b>
+<b class="fc"><i class="no-highlight">415</i>&nbsp;        Skin skin = new Skin(Gdx.files.internal(&quot;skin/uiskin.json&quot;));</b>
+<i class="no-highlight">416</i>&nbsp;
+<i class="no-highlight">417</i>&nbsp;        //GAME BUTTONS
+<b class="fc"><i class="no-highlight">418</i>&nbsp;        final TextButton pauseButton = new TextButton(&quot;Pause&quot;,skin);</b>
+<b class="fc"><i class="no-highlight">419</i>&nbsp;        final TextButton shopButton = new TextButton(&quot;Shop&quot;,skin);</b>
+<i class="no-highlight">420</i>&nbsp;
+<i class="no-highlight">421</i>&nbsp;
+<i class="no-highlight">422</i>&nbsp;        //PAUSE MENU BUTTONS
+<b class="fc"><i class="no-highlight">423</i>&nbsp;        final TextButton start = new TextButton(&quot;Resume&quot;, skin);</b>
+<b class="fc"><i class="no-highlight">424</i>&nbsp;        final TextButton save = new TextButton(&quot;Save Game&quot;, skin);</b>
+<b class="fc"><i class="no-highlight">425</i>&nbsp;        final TextButton skill = new TextButton(&quot;Shop&quot;, skin);</b>
+<b class="fc"><i class="no-highlight">426</i>&nbsp;        final TextButton options = new TextButton(&quot;Options&quot;, skin);</b>
+<b class="fc"><i class="no-highlight">427</i>&nbsp;        TextButton exit = new TextButton(&quot;Exit&quot;, skin);</b>
+<i class="no-highlight">428</i>&nbsp;
+<i class="no-highlight">429</i>&nbsp;
+<i class="no-highlight">430</i>&nbsp;        //Create main table and pause tables
+<b class="fc"><i class="no-highlight">431</i>&nbsp;        table = new Table();</b>
+<b class="fc"><i class="no-highlight">432</i>&nbsp;        table.setFillParent(true);</b>
+<b class="fc"><i class="no-highlight">433</i>&nbsp;        stage.addActor(table);</b>
+<i class="no-highlight">434</i>&nbsp;
+<b class="fc"><i class="no-highlight">435</i>&nbsp;        pauseTable = new Table();</b>
+<b class="fc"><i class="no-highlight">436</i>&nbsp;        pauseTable.setFillParent(true);</b>
+<b class="fc"><i class="no-highlight">437</i>&nbsp;        stage.addActor(pauseTable);</b>
+<i class="no-highlight">438</i>&nbsp;
+<i class="no-highlight">439</i>&nbsp;
+<i class="no-highlight">440</i>&nbsp;        //Set the visability of the tables. Particuarly used when coming back from options or skillTree
+<b class="fc"><i class="no-highlight">441</i>&nbsp;        if (gameStatus == GAME_PAUSED){</b>
+<b class="fc"><i class="no-highlight">442</i>&nbsp;            table.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">443</i>&nbsp;            pauseTable.setVisible(true);</b>
+<i class="no-highlight">444</i>&nbsp;        }
+<i class="no-highlight">445</i>&nbsp;        else{
+<b class="fc"><i class="no-highlight">446</i>&nbsp;            pauseTable.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">447</i>&nbsp;            table.setVisible(true);</b>
+<i class="no-highlight">448</i>&nbsp;        }
+<i class="no-highlight">449</i>&nbsp;
+<i class="no-highlight">450</i>&nbsp;        //ADD TO TABLES
+<b class="fc"><i class="no-highlight">451</i>&nbsp;        table.add(pauseButton);</b>
+<b class="fc"><i class="no-highlight">452</i>&nbsp;        table.row().pad(10, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">453</i>&nbsp;        table.add(shopButton);</b>
+<b class="fc"><i class="no-highlight">454</i>&nbsp;        table.row().pad(10, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">455</i>&nbsp;        table.left().top();</b>
+<i class="no-highlight">456</i>&nbsp;
+<b class="fc"><i class="no-highlight">457</i>&nbsp;        pauseTable.add(start).fillX().uniformX();</b>
+<b class="fc"><i class="no-highlight">458</i>&nbsp;        pauseTable.row().pad(20, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">459</i>&nbsp;        pauseTable.add(save).fillX().uniformX();</b>
+<b class="fc"><i class="no-highlight">460</i>&nbsp;        pauseTable.row().pad(20, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">461</i>&nbsp;        pauseTable.add(skill).fillX().uniformX();</b>
+<b class="fc"><i class="no-highlight">462</i>&nbsp;        pauseTable.row().pad(20, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">463</i>&nbsp;        pauseTable.add(options).fillX().uniformX();</b>
+<b class="fc"><i class="no-highlight">464</i>&nbsp;        pauseTable.row().pad(20, 0, 10, 0);</b>
+<b class="fc"><i class="no-highlight">465</i>&nbsp;        pauseTable.add(exit).fillX().uniformX();</b>
+<b class="fc"><i class="no-highlight">466</i>&nbsp;        pauseTable.center();</b>
+<i class="no-highlight">467</i>&nbsp;
+<i class="no-highlight">468</i>&nbsp;
+<b class="fc"><i class="no-highlight">469</i>&nbsp;        pauseButton.addListener(new ChangeListener() {</b>
+<i class="no-highlight">470</i>&nbsp;            @Override
+<i class="no-highlight">471</i>&nbsp;            public void changed(ChangeEvent event, Actor actor){
+<b class="fc"><i class="no-highlight">472</i>&nbsp;                table.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">473</i>&nbsp;                pauseTable.setVisible(true);</b>
+<b class="fc"><i class="no-highlight">474</i>&nbsp;                pause();</b>
+<i class="no-highlight">475</i>&nbsp;
+<i class="no-highlight">476</i>&nbsp;            }
+<i class="no-highlight">477</i>&nbsp;        });
+<b class="fc"><i class="no-highlight">478</i>&nbsp;        shopButton.addListener(new ChangeListener() {</b>
+<i class="no-highlight">479</i>&nbsp;            @Override
+<i class="no-highlight">480</i>&nbsp;            public void changed(ChangeEvent event, Actor actor){
+<b class="nc"><i class="no-highlight">481</i>&nbsp;                pauseTable.setVisible(false);</b>
+<b class="nc"><i class="no-highlight">482</i>&nbsp;                getGame().changeScreen(SKILL, true);</b>
+<i class="no-highlight">483</i>&nbsp;            }
+<i class="no-highlight">484</i>&nbsp;        });
+<b class="fc"><i class="no-highlight">485</i>&nbsp;        skill.addListener(new ChangeListener() {</b>
+<i class="no-highlight">486</i>&nbsp;            @Override
+<i class="no-highlight">487</i>&nbsp;            public void changed(ChangeEvent event, Actor actor){
+<b class="fc"><i class="no-highlight">488</i>&nbsp;                pauseTable.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">489</i>&nbsp;                getGame().changeScreen(SKILL, true);</b>
+<i class="no-highlight">490</i>&nbsp;            }
+<i class="no-highlight">491</i>&nbsp;        });
+<b class="fc"><i class="no-highlight">492</i>&nbsp;        start.addListener(new ChangeListener() {</b>
+<i class="no-highlight">493</i>&nbsp;            @Override
+<i class="no-highlight">494</i>&nbsp;            public void changed(ChangeEvent event, Actor actor) {
+<b class="fc"><i class="no-highlight">495</i>&nbsp;                pauseTable.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">496</i>&nbsp;                table.setVisible(true);</b>
+<b class="fc"><i class="no-highlight">497</i>&nbsp;                resume();</b>
+<i class="no-highlight">498</i>&nbsp;            }
+<i class="no-highlight">499</i>&nbsp;        });
+<b class="fc"><i class="no-highlight">500</i>&nbsp;        save.addListener(new ChangeListener() {</b>
+<i class="no-highlight">501</i>&nbsp;            @Override
+<i class="no-highlight">502</i>&nbsp;            public void changed(ChangeEvent event, Actor actor) {
+<b class="fc"><i class="no-highlight">503</i>&nbsp;                getGame().save();</b>
+<i class="no-highlight">504</i>&nbsp;            }
+<i class="no-highlight">505</i>&nbsp;        }
+<i class="no-highlight">506</i>&nbsp;        );
+<b class="fc"><i class="no-highlight">507</i>&nbsp;        options.addListener(new ChangeListener() {</b>
+<i class="no-highlight">508</i>&nbsp;            @Override
+<i class="no-highlight">509</i>&nbsp;            public void changed(ChangeEvent event, Actor actor) {
+<b class="fc"><i class="no-highlight">510</i>&nbsp;                pauseTable.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">511</i>&nbsp;                getGame().setScreen(new Options(getGame(),getGame().getScreen()));</b>
+<i class="no-highlight">512</i>&nbsp;            }
+<i class="no-highlight">513</i>&nbsp;        }
+<i class="no-highlight">514</i>&nbsp;        );
+<b class="fc"><i class="no-highlight">515</i>&nbsp;        exit.addListener(new ChangeListener() {</b>
+<i class="no-highlight">516</i>&nbsp;            @Override
+<i class="no-highlight">517</i>&nbsp;            public void changed(ChangeEvent event, Actor actor) {
+<b class="nc"><i class="no-highlight">518</i>&nbsp;                game.changeScreen(MENU, true);</b>
+<i class="no-highlight">519</i>&nbsp;            }
+<i class="no-highlight">520</i>&nbsp;        });
+<i class="no-highlight">521</i>&nbsp;    }
+<i class="no-highlight">522</i>&nbsp;
+<i class="no-highlight">523</i>&nbsp;    /**
+<i class="no-highlight">524</i>&nbsp;     * Changes the camera size, Scales the hud to match the camera
+<i class="no-highlight">525</i>&nbsp;     *
+<i class="no-highlight">526</i>&nbsp;     * @param width the width of the viewable area
+<i class="no-highlight">527</i>&nbsp;     * @param height the height of the viewable area
+<i class="no-highlight">528</i>&nbsp;     */
+<i class="no-highlight">529</i>&nbsp;    @Override
+<i class="no-highlight">530</i>&nbsp;    public void resize(int width, int height) {
+<b class="fc"><i class="no-highlight">531</i>&nbsp;        viewport.update(width, height);</b>
+<b class="fc"><i class="no-highlight">532</i>&nbsp;        stage.getViewport().update(width, height, true);</b>
+<b class="fc"><i class="no-highlight">533</i>&nbsp;        Hud.resize(width, height);</b>
+<b class="fc"><i class="no-highlight">534</i>&nbsp;        camera.update();</b>
+<b class="fc"><i class="no-highlight">535</i>&nbsp;        renderer.setView(camera);</b>
+<i class="no-highlight">536</i>&nbsp;    }
+<i class="no-highlight">537</i>&nbsp;
+<i class="no-highlight">538</i>&nbsp;    /**
+<i class="no-highlight">539</i>&nbsp;     * Returns the map
+<i class="no-highlight">540</i>&nbsp;     *
+<i class="no-highlight">541</i>&nbsp;     * @return map : returns the world map
+<i class="no-highlight">542</i>&nbsp;     */
+<i class="no-highlight">543</i>&nbsp;    public TiledMap getMap() {
+<b class="fc"><i class="no-highlight">544</i>&nbsp;        return map;</b>
+<i class="no-highlight">545</i>&nbsp;    }
+<i class="no-highlight">546</i>&nbsp;
+<i class="no-highlight">547</i>&nbsp;    /**
+<i class="no-highlight">548</i>&nbsp;     * Returns the world (map and objects)
+<i class="no-highlight">549</i>&nbsp;     *
+<i class="no-highlight">550</i>&nbsp;     * @return world : returns the world
+<i class="no-highlight">551</i>&nbsp;     */
+<i class="no-highlight">552</i>&nbsp;    public World getWorld() {
+<b class="fc"><i class="no-highlight">553</i>&nbsp;        return world;</b>
+<i class="no-highlight">554</i>&nbsp;    }
+<i class="no-highlight">555</i>&nbsp;
+<i class="no-highlight">556</i>&nbsp;    /**
+<i class="no-highlight">557</i>&nbsp;     * Destroys all the bodies in world
+<i class="no-highlight">558</i>&nbsp;     */
+<i class="no-highlight">559</i>&nbsp;    public void destroyBodies(){
+<b class="nc"><i class="no-highlight">560</i>&nbsp;        Array&lt;Body&gt; bodies = new Array&lt;&gt;();</b>
+<b class="nc"><i class="no-highlight">561</i>&nbsp;        world.getBodies(bodies);</b>
+<b class="nc"><i class="no-highlight">562</i>&nbsp;        for (Body body : bodies) {</b>
+<b class="nc"><i class="no-highlight">563</i>&nbsp;            if(!world.isLocked())</b>
+<b class="nc"><i class="no-highlight">564</i>&nbsp;                world.destroyBody(body);</b>
+<b class="nc"><i class="no-highlight">565</i>&nbsp;        }</b>
+<i class="no-highlight">566</i>&nbsp;    }
+<i class="no-highlight">567</i>&nbsp;
+<i class="no-highlight">568</i>&nbsp;    /**
+<i class="no-highlight">569</i>&nbsp;     * Returns the college from the colleges hashmap
+<i class="no-highlight">570</i>&nbsp;     *
+<i class="no-highlight">571</i>&nbsp;     * @param collegeName uses a college name as an index
+<i class="no-highlight">572</i>&nbsp;     * @return college : returns the college fetched from colleges
+<i class="no-highlight">573</i>&nbsp;     */
+<i class="no-highlight">574</i>&nbsp;    public static College getCollege(String collegeName) {
+<b class="fc"><i class="no-highlight">575</i>&nbsp;    	for (College college : getColleges()) {</b>
+<b class="fc"><i class="no-highlight">576</i>&nbsp;    		if (college.getCollege() == collegeName) {</b>
+<b class="fc"><i class="no-highlight">577</i>&nbsp;    			return college;</b>
+<i class="no-highlight">578</i>&nbsp;    		}
+<b class="fc"><i class="no-highlight">579</i>&nbsp;    	}</b>
+<b class="nc"><i class="no-highlight">580</i>&nbsp;        return getColleges().get(0);</b>
+<i class="no-highlight">581</i>&nbsp;    }
+<i class="no-highlight">582</i>&nbsp;
+<i class="no-highlight">583</i>&nbsp;    /**
+<i class="no-highlight">584</i>&nbsp;     * Checks if the game is over
+<i class="no-highlight">585</i>&nbsp;     * i.e. goal reached (all colleges bar &quot;Alcuin&quot; are destroyed)
+<i class="no-highlight">586</i>&nbsp;     */
+<i class="no-highlight">587</i>&nbsp;    public void gameOverCheck(){
+<i class="no-highlight">588</i>&nbsp;        //Lose game if ship on 0 health or Alcuin is destroyed
+<b class="fc"><i class="no-highlight">589</i>&nbsp;        if (Hud.getHealth() &lt;= 0 || getColleges().get(0).getHealth() &lt;= 0) {</b>
+<b class="nc"><i class="no-highlight">590</i>&nbsp;            getGame().changeScreen(DEATH, true);</b>
+<b class="nc"><i class="no-highlight">591</i>&nbsp;            destroyBodies();</b>
+<i class="no-highlight">592</i>&nbsp;        }
+<i class="no-highlight">593</i>&nbsp;        
+<b class="fc"><i class="no-highlight">594</i>&nbsp;        boolean victory = true;</b>
+<b class="fc"><i class="no-highlight">595</i>&nbsp;        for(College college : colleges) {</b>
+<b class="fc"><i class="no-highlight">596</i>&nbsp;        	if(college.getCollege() != &quot;alcuin&quot; &amp;&amp; !college.isDestroyed()) {</b>
+<b class="fc"><i class="no-highlight">597</i>&nbsp;        		victory = false;</b>
+<i class="no-highlight">598</i>&nbsp;        	}
+<b class="fc"><i class="no-highlight">599</i>&nbsp;        }</b>
+<i class="no-highlight">600</i>&nbsp;        
+<i class="no-highlight">601</i>&nbsp;        //Win game if all colleges destroyed
+<b class="fc"><i class="no-highlight">602</i>&nbsp;        if (victory){</b>
+<b class="nc"><i class="no-highlight">603</i>&nbsp;            getGame().changeScreen(VICTORY, true);</b>
+<b class="nc"><i class="no-highlight">604</i>&nbsp;            destroyBodies();</b>
+<i class="no-highlight">605</i>&nbsp;        }
+<i class="no-highlight">606</i>&nbsp;    }
+<i class="no-highlight">607</i>&nbsp;
+<i class="no-highlight">608</i>&nbsp;    //public void IncreaseMaxSpeedPercent(int num){difficulty.IncreaseMaxSpeedPercent(num); } // num increase
+<i class="no-highlight">609</i>&nbsp;    //public void IncreaseTraversePercent(int num){difficulty.IncreaseTraversePercent(num); }
+<i class="no-highlight">610</i>&nbsp;    //public void IncreaseDamageDealtPercent(int num){difficulty.IncreaseDamageDealtPercent(num);}
+<i class="no-highlight">611</i>&nbsp;    // SetGoldCoinMulti
+<i class="no-highlight">612</i>&nbsp;    //public void DecreaseDamageRecievedPercent(int num){difficulty.DecreaseDamageRecievedPercent(num);}
+<i class="no-highlight">613</i>&nbsp;    
+<i class="no-highlight">614</i>&nbsp;    public static Player getPlayer() {
+<b class="fc"><i class="no-highlight">615</i>&nbsp;    	return (Player) getShips().get(0);</b>
+<i class="no-highlight">616</i>&nbsp;    }
+<i class="no-highlight">617</i>&nbsp;
+<i class="no-highlight">618</i>&nbsp;    public static void setPlayer(Player player) {
+<b class="nc"><i class="no-highlight">619</i>&nbsp;    	getShips().set(0, player);</b>
+<i class="no-highlight">620</i>&nbsp;    }
+<i class="no-highlight">621</i>&nbsp;    
+<i class="no-highlight">622</i>&nbsp;    /**
+<i class="no-highlight">623</i>&nbsp;     * Fetches the player&#39;s current position
+<i class="no-highlight">624</i>&nbsp;     *
+<i class="no-highlight">625</i>&nbsp;     * @return position vector : returns the position of the player
+<i class="no-highlight">626</i>&nbsp;     */
+<i class="no-highlight">627</i>&nbsp;    public Vector2 getPlayerPos(){
+<b class="nc"><i class="no-highlight">628</i>&nbsp;        return new Vector2(getPlayer().getPosition().x, getPlayer().getPosition().y);</b>
+<i class="no-highlight">629</i>&nbsp;    }
+<i class="no-highlight">630</i>&nbsp;
+<i class="no-highlight">631</i>&nbsp;    /**
+<i class="no-highlight">632</i>&nbsp;     * Updates acceleration by a given percentage. Accessed by skill tree
+<i class="no-highlight">633</i>&nbsp;     *
+<i class="no-highlight">634</i>&nbsp;     * @param percentage percentage increase
+<i class="no-highlight">635</i>&nbsp;     */
+<i class="no-highlight">636</i>&nbsp;    public static void changeAcceleration(Float percentage){
+<b class="nc"><i class="no-highlight">637</i>&nbsp;        accel = accel * (1 + (percentage / 100));</b>
+<i class="no-highlight">638</i>&nbsp;    }
+<i class="no-highlight">639</i>&nbsp;
+<i class="no-highlight">640</i>&nbsp;    /**
+<i class="no-highlight">641</i>&nbsp;     * Updates max speed by a given percentage. Accessed by skill tree
+<i class="no-highlight">642</i>&nbsp;     *
+<i class="no-highlight">643</i>&nbsp;     * @param percentage percentage increase
+<i class="no-highlight">644</i>&nbsp;     */
+<i class="no-highlight">645</i>&nbsp;    public static void changeMaxSpeed(Float percentage){
+<b class="nc"><i class="no-highlight">646</i>&nbsp;        maxSpeed = maxSpeed * (1 +(percentage/100));</b>
+<i class="no-highlight">647</i>&nbsp;    }
+<i class="no-highlight">648</i>&nbsp;
+<i class="no-highlight">649</i>&nbsp;    /**
+<i class="no-highlight">650</i>&nbsp;     * Changes the amount of damage done by each hit. Accessed by skill tree
+<i class="no-highlight">651</i>&nbsp;     *
+<i class="no-highlight">652</i>&nbsp;     * @param value damage dealt
+<i class="no-highlight">653</i>&nbsp;     */
+<i class="no-highlight">654</i>&nbsp;    public static void changeDamage(int value){
+<i class="no-highlight">655</i>&nbsp;
+<b class="nc"><i class="no-highlight">656</i>&nbsp;        for (int i = 0; i &lt; getShips().size(); i++){</b>
+<b class="nc"><i class="no-highlight">657</i>&nbsp;            getShips().get(i).changeDamageReceived(value);</b>
+<i class="no-highlight">658</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">659</i>&nbsp;        getCollege(&quot;anne_lister&quot;).changeDamageReceived(value);</b>
+<b class="nc"><i class="no-highlight">660</i>&nbsp;        getCollege(&quot;constantine&quot;).changeDamageReceived(value);</b>
+<b class="nc"><i class="no-highlight">661</i>&nbsp;        getCollege(&quot;goodricke&quot;).changeDamageReceived(value);</b>
+<b class="nc"><i class="no-highlight">662</i>&nbsp;        getCollege(&quot;halifax&quot;).changeDamageReceived(value);</b>
+<b class="nc"><i class="no-highlight">663</i>&nbsp;        getCollege(&quot;langwith&quot;).changeDamageReceived(value);</b>
+<b class="nc"><i class="no-highlight">664</i>&nbsp;        getCollege(&quot;vanbrugh&quot;).changeDamageReceived(value);</b>
+<i class="no-highlight">665</i>&nbsp;    }
+<i class="no-highlight">666</i>&nbsp;
+<i class="no-highlight">667</i>&nbsp;    public void SetGoldCoinMulti(int num){
+<b class="nc"><i class="no-highlight">668</i>&nbsp;        GameScreen.getDifficulty().SetGoldCoinMulti(num);</b>
+<i class="no-highlight">669</i>&nbsp;    }
+<i class="no-highlight">670</i>&nbsp;
+<i class="no-highlight">671</i>&nbsp;    /**
+<i class="no-highlight">672</i>&nbsp;     * Test if a cloud has already been spawned near these coordinates
+<i class="no-highlight">673</i>&nbsp;     * @param x random x value
+<i class="no-highlight">674</i>&nbsp;     * @param y random y value
+<i class="no-highlight">675</i>&nbsp;     */
+<i class="no-highlight">676</i>&nbsp;    private Boolean checkGenPosClouds(int x, int y){
+<b class="fc"><i class="no-highlight">677</i>&nbsp;        if (invalidSpawnClouds.containsKey(x)){</b>
+<b class="fc"><i class="no-highlight">678</i>&nbsp;            ArrayList&lt;Integer&gt; yTest = invalidSpawnClouds.get(x);</b>
+<b class="fc"><i class="no-highlight">679</i>&nbsp;            if (yTest.contains(y)){</b>
+<b class="fc"><i class="no-highlight">680</i>&nbsp;                return false;</b>
+<i class="no-highlight">681</i>&nbsp;            }
+<i class="no-highlight">682</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">683</i>&nbsp;        for (int i = -1; i &lt; 2; i++){</b>
+<b class="fc"><i class="no-highlight">684</i>&nbsp;            if(invalidSpawnClouds.containsKey(x+i)){</b>
+<b class="fc"><i class="no-highlight">685</i>&nbsp;                invalidSpawnClouds.get(x+i).addAll(new ArrayList&lt;&gt;(Arrays.asList(y-1, y, y+1)));</b>
+<i class="no-highlight">686</i>&nbsp;            }
+<i class="no-highlight">687</i>&nbsp;            else{
+<b class="fc"><i class="no-highlight">688</i>&nbsp;                invalidSpawnClouds.put(x+i, new ArrayList&lt;&gt;(Arrays.asList(y-1, y, y+1)));</b>
+<i class="no-highlight">689</i>&nbsp;            }
+<i class="no-highlight">690</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">691</i>&nbsp;        return true;</b>
+<i class="no-highlight">692</i>&nbsp;    }
+<i class="no-highlight">693</i>&nbsp;
+<i class="no-highlight">694</i>&nbsp;    /**
+<i class="no-highlight">695</i>&nbsp;     * Pauses game
+<i class="no-highlight">696</i>&nbsp;     */
+<i class="no-highlight">697</i>&nbsp;    @Override
+<i class="no-highlight">698</i>&nbsp;    public void pause() {
+<b class="fc"><i class="no-highlight">699</i>&nbsp;        gameStatus = GAME_PAUSED;</b>
+<i class="no-highlight">700</i>&nbsp;    }
+<i class="no-highlight">701</i>&nbsp;
+<i class="no-highlight">702</i>&nbsp;    /**
+<i class="no-highlight">703</i>&nbsp;     * Resumes game
+<i class="no-highlight">704</i>&nbsp;     */
+<i class="no-highlight">705</i>&nbsp;    @Override
+<i class="no-highlight">706</i>&nbsp;    public void resume() {
+<b class="fc"><i class="no-highlight">707</i>&nbsp;        gameStatus = GAME_RUNNING;</b>
+<i class="no-highlight">708</i>&nbsp;    }
+<i class="no-highlight">709</i>&nbsp;
+<i class="no-highlight">710</i>&nbsp;    /**
+<i class="no-highlight">711</i>&nbsp;     * (Not Used)
+<i class="no-highlight">712</i>&nbsp;     * Hides game
+<i class="no-highlight">713</i>&nbsp;     */
+<i class="no-highlight">714</i>&nbsp;    @Override
+<i class="no-highlight">715</i>&nbsp;    public void hide() {
+<i class="no-highlight">716</i>&nbsp;
+<i class="no-highlight">717</i>&nbsp;    }
+<i class="no-highlight">718</i>&nbsp;
+<i class="no-highlight">719</i>&nbsp;    /**
+<i class="no-highlight">720</i>&nbsp;     * Disposes game data
+<i class="no-highlight">721</i>&nbsp;     */
+<i class="no-highlight">722</i>&nbsp;    @Override
+<i class="no-highlight">723</i>&nbsp;    public void dispose() {
+<b class="nc"><i class="no-highlight">724</i>&nbsp;        map.dispose();</b>
+<b class="nc"><i class="no-highlight">725</i>&nbsp;        renderer.dispose();</b>
+<b class="nc"><i class="no-highlight">726</i>&nbsp;        world.dispose();</b>
+<b class="nc"><i class="no-highlight">727</i>&nbsp;        getHud().dispose();</b>
+<b class="nc"><i class="no-highlight">728</i>&nbsp;        stage.dispose();</b>
+<i class="no-highlight">729</i>&nbsp;    }
+<i class="no-highlight">730</i>&nbsp;    
+<i class="no-highlight">731</i>&nbsp;    public static ArrayList&lt;SteerableEntity&gt; getShips() {
+<b class="fc"><i class="no-highlight">732</i>&nbsp;    	return ships;</b>
+<i class="no-highlight">733</i>&nbsp;    }
+<i class="no-highlight">734</i>&nbsp;    
+<i class="no-highlight">735</i>&nbsp;    public static ArrayList&lt;Coin&gt; getCoins() {
+<b class="fc"><i class="no-highlight">736</i>&nbsp;    	return coins;</b>
+<i class="no-highlight">737</i>&nbsp;    }
+<i class="no-highlight">738</i>&nbsp;
+<i class="no-highlight">739</i>&nbsp;	public static Difficulty getDifficulty() {
+<b class="fc"><i class="no-highlight">740</i>&nbsp;		return difficulty;</b>
+<i class="no-highlight">741</i>&nbsp;	}
+<i class="no-highlight">742</i>&nbsp;
+<i class="no-highlight">743</i>&nbsp;	public AvailableSpawn getInvalidSpawn() {
+<b class="nc"><i class="no-highlight">744</i>&nbsp;		return invalidSpawn;</b>
+<i class="no-highlight">745</i>&nbsp;	}
+<i class="no-highlight">746</i>&nbsp;
+<i class="no-highlight">747</i>&nbsp;	public static ArrayList&lt;College&gt; getColleges() {
+<b class="fc"><i class="no-highlight">748</i>&nbsp;		return colleges;</b>
+<i class="no-highlight">749</i>&nbsp;	}
+<i class="no-highlight">750</i>&nbsp;
+<i class="no-highlight">751</i>&nbsp;	public static void setColleges(ArrayList&lt;College&gt; colleges) {
+<b class="nc"><i class="no-highlight">752</i>&nbsp;		GameScreen.colleges = colleges;</b>
+<i class="no-highlight">753</i>&nbsp;	}
+<i class="no-highlight">754</i>&nbsp;
+<i class="no-highlight">755</i>&nbsp;	public static ArrayList&lt;Powerup&gt; getPowerups() {
+<b class="fc"><i class="no-highlight">756</i>&nbsp;		return powerups;</b>
+<i class="no-highlight">757</i>&nbsp;	}
+<i class="no-highlight">758</i>&nbsp;
+<i class="no-highlight">759</i>&nbsp;	public Hud getHud() {
+<b class="fc"><i class="no-highlight">760</i>&nbsp;		return hud;</b>
+<i class="no-highlight">761</i>&nbsp;	}
+<i class="no-highlight">762</i>&nbsp;
+<i class="no-highlight">763</i>&nbsp;	public Float getTempTime() {
+<b class="fc"><i class="no-highlight">764</i>&nbsp;		return TempTime;</b>
+<i class="no-highlight">765</i>&nbsp;	}
+<i class="no-highlight">766</i>&nbsp;
+<i class="no-highlight">767</i>&nbsp;	public static void setShips(ArrayList&lt;SteerableEntity&gt; ships) {
+<b class="nc"><i class="no-highlight">768</i>&nbsp;		GameScreen.ships = ships;</b>
+<i class="no-highlight">769</i>&nbsp;	}
+<i class="no-highlight">770</i>&nbsp;
+<i class="no-highlight">771</i>&nbsp;	public static void setCoins(ArrayList&lt;Coin&gt; coins) {
+<b class="nc"><i class="no-highlight">772</i>&nbsp;		GameScreen.coins = coins;</b>
+<i class="no-highlight">773</i>&nbsp;	}
+<i class="no-highlight">774</i>&nbsp;
+<i class="no-highlight">775</i>&nbsp;	public static void setPowerups(ArrayList&lt;Powerup&gt; powerups) {
+<b class="nc"><i class="no-highlight">776</i>&nbsp;		GameScreen.powerups = powerups;</b>
+<i class="no-highlight">777</i>&nbsp;	}
+<i class="no-highlight">778</i>&nbsp;
+<b class="nc"><i class="no-highlight">779</i>&nbsp;    public static void setTornadoes(ArrayList&lt;Tornado&gt; tornadoes){ GameScreen.Tornadoes = tornadoes;}</b>
+<i class="no-highlight">780</i>&nbsp;
+<i class="no-highlight">781</i>&nbsp;	public void setTempTime(Float tempTime) {
+<b class="fc"><i class="no-highlight">782</i>&nbsp;		TempTime = tempTime;</b>
+<i class="no-highlight">783</i>&nbsp;	}
+<i class="no-highlight">784</i>&nbsp;
+<i class="no-highlight">785</i>&nbsp;	public void setInvalidSpawn(AvailableSpawn invalidSpawn) {
+<b class="nc"><i class="no-highlight">786</i>&nbsp;		this.invalidSpawn = invalidSpawn;</b>
+<i class="no-highlight">787</i>&nbsp;	}
+<i class="no-highlight">788</i>&nbsp;
+<i class="no-highlight">789</i>&nbsp;	public static PirateGame getGame() {
+<b class="fc"><i class="no-highlight">790</i>&nbsp;		return game;</b>
+<i class="no-highlight">791</i>&nbsp;	}
+<i class="no-highlight">792</i>&nbsp;
+<i class="no-highlight">793</i>&nbsp;	public static void setGame(PirateGame game) {
+<b class="fc"><i class="no-highlight">794</i>&nbsp;		GameScreen.game = game;</b>
+<i class="no-highlight">795</i>&nbsp;	}
+<i class="no-highlight">796</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-03 22:13</div>
+</div>
+</body>
+</html>

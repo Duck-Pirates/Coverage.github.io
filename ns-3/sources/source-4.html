@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > audioControls</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mygdx.pirategame.configs</a>
+</div>
+
+<h1>Coverage Summary for Class: audioControls (com.mygdx.pirategame.configs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">audioControls</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (6/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    42.9%
+  </span>
+  <span class="absValue">
+    (6/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.mygdx.pirategame.configs;
+<i class="no-highlight">2</i>&nbsp;import com.badlogic.gdx.Gdx;
+<i class="no-highlight">3</i>&nbsp;import com.badlogic.gdx.Preferences;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;/**
+<i class="no-highlight">6</i>&nbsp; * Audio Controls
+<i class="no-highlight">7</i>&nbsp; * Creates the interface to write and read options
+<i class="no-highlight">8</i>&nbsp; *
+<i class="no-highlight">9</i>&nbsp; * @author Sam Pearson
+<i class="no-highlight">10</i>&nbsp; * @version 1.0
+<i class="no-highlight">11</i>&nbsp; */
+<b class="fc"><i class="no-highlight">12</i>&nbsp;public class audioControls {</b>
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;    //Set keys that are stored in the file
+<i class="no-highlight">15</i>&nbsp;    private static final String MUSIC_VOLUME = &quot;volume&quot;;
+<i class="no-highlight">16</i>&nbsp;    private static final String MUSIC_ENABLED = &quot;music.enabled&quot;;
+<i class="no-highlight">17</i>&nbsp;    private static final String SOUND_ENABLED = &quot;sound.enabled&quot;;
+<i class="no-highlight">18</i>&nbsp;    private static final String EFFECT_VOL = &quot;sound&quot;;
+<i class="no-highlight">19</i>&nbsp;    private static final String PAGE = &quot;audio&quot;;
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;    /**
+<i class="no-highlight">22</i>&nbsp;     *  Interface to access the file
+<i class="no-highlight">23</i>&nbsp;     *
+<i class="no-highlight">24</i>&nbsp;     * @return the preferences of that page
+<i class="no-highlight">25</i>&nbsp;     */
+<i class="no-highlight">26</i>&nbsp;    protected Preferences optionsObtains() {
+<b class="fc"><i class="no-highlight">27</i>&nbsp;        return Gdx.app.getPreferences(PAGE);</b>
+<i class="no-highlight">28</i>&nbsp;    }
+<i class="no-highlight">29</i>&nbsp;
+<i class="no-highlight">30</i>&nbsp;    /**
+<i class="no-highlight">31</i>&nbsp;     * See if effect sound is enabled
+<i class="no-highlight">32</i>&nbsp;     *
+<i class="no-highlight">33</i>&nbsp;     * @return the boolean
+<i class="no-highlight">34</i>&nbsp;     */
+<i class="no-highlight">35</i>&nbsp;    public boolean isEffectsEnabled() {
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        return optionsObtains().getBoolean(SOUND_ENABLED, true);</b>
+<i class="no-highlight">37</i>&nbsp;    }
+<i class="no-highlight">38</i>&nbsp;
+<i class="no-highlight">39</i>&nbsp;    /**
+<i class="no-highlight">40</i>&nbsp;     * Sets effects enabled or disabled
+<i class="no-highlight">41</i>&nbsp;     *
+<i class="no-highlight">42</i>&nbsp;     * @param EffectsOn The value that needs to be stored.
+<i class="no-highlight">43</i>&nbsp;     */
+<i class="no-highlight">44</i>&nbsp;    public void setEffectsEnabled(boolean EffectsOn) {
+<b class="nc"><i class="no-highlight">45</i>&nbsp;        optionsObtains().putBoolean(SOUND_ENABLED, EffectsOn);</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;        optionsObtains().flush();</b>
+<i class="no-highlight">47</i>&nbsp;    }
+<i class="no-highlight">48</i>&nbsp;
+<i class="no-highlight">49</i>&nbsp;    /**
+<i class="no-highlight">50</i>&nbsp;     * See if music sound is enabled
+<i class="no-highlight">51</i>&nbsp;     *
+<i class="no-highlight">52</i>&nbsp;     * @return the boolean
+<i class="no-highlight">53</i>&nbsp;     */
+<i class="no-highlight">54</i>&nbsp;    public boolean isMusicEnabled() {
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        return optionsObtains().getBoolean(MUSIC_ENABLED, true);</b>
+<i class="no-highlight">56</i>&nbsp;    }
+<i class="no-highlight">57</i>&nbsp;
+<i class="no-highlight">58</i>&nbsp;    /**
+<i class="no-highlight">59</i>&nbsp;     * Sets music enabled or disabled
+<i class="no-highlight">60</i>&nbsp;     *
+<i class="no-highlight">61</i>&nbsp;     * @param musicOn value that needs to be stored.
+<i class="no-highlight">62</i>&nbsp;     */
+<i class="no-highlight">63</i>&nbsp;    public void setMusicEnabled(boolean musicOn) {
+<b class="nc"><i class="no-highlight">64</i>&nbsp;        optionsObtains().putBoolean(MUSIC_ENABLED, musicOn);</b>
+<b class="nc"><i class="no-highlight">65</i>&nbsp;        optionsObtains().flush();</b>
+<i class="no-highlight">66</i>&nbsp;    }
+<i class="no-highlight">67</i>&nbsp;
+<i class="no-highlight">68</i>&nbsp;    /**
+<i class="no-highlight">69</i>&nbsp;     * Gets music volume.
+<i class="no-highlight">70</i>&nbsp;     *
+<i class="no-highlight">71</i>&nbsp;     * @return the music volume
+<i class="no-highlight">72</i>&nbsp;     */
+<i class="no-highlight">73</i>&nbsp;    public float getMusicVolume() {
+<b class="fc"><i class="no-highlight">74</i>&nbsp;        return optionsObtains().getFloat(MUSIC_VOLUME, 0.5f);</b>
+<i class="no-highlight">75</i>&nbsp;    }
+<i class="no-highlight">76</i>&nbsp;
+<i class="no-highlight">77</i>&nbsp;    /**
+<i class="no-highlight">78</i>&nbsp;     * Sets music volume.
+<i class="no-highlight">79</i>&nbsp;     *
+<i class="no-highlight">80</i>&nbsp;     * @param volume the volume to set
+<i class="no-highlight">81</i>&nbsp;     */
+<i class="no-highlight">82</i>&nbsp;    public void setMusicVolume(float volume) {
+<b class="nc"><i class="no-highlight">83</i>&nbsp;        optionsObtains().putFloat(MUSIC_VOLUME, volume);</b>
+<b class="nc"><i class="no-highlight">84</i>&nbsp;        optionsObtains().flush();</b>
+<i class="no-highlight">85</i>&nbsp;    }
+<i class="no-highlight">86</i>&nbsp;
+<i class="no-highlight">87</i>&nbsp;    /**
+<i class="no-highlight">88</i>&nbsp;     * Gets effects volume.
+<i class="no-highlight">89</i>&nbsp;     *
+<i class="no-highlight">90</i>&nbsp;     * @return the effects volume
+<i class="no-highlight">91</i>&nbsp;     */
+<i class="no-highlight">92</i>&nbsp;    public float getEffectsVolume() {
+<b class="fc"><i class="no-highlight">93</i>&nbsp;        return optionsObtains().getFloat(EFFECT_VOL, 0.5f);</b>
+<i class="no-highlight">94</i>&nbsp;    }
+<i class="no-highlight">95</i>&nbsp;
+<i class="no-highlight">96</i>&nbsp;    /**
+<i class="no-highlight">97</i>&nbsp;     * Sets effects volume.
+<i class="no-highlight">98</i>&nbsp;     *
+<i class="no-highlight">99</i>&nbsp;     * @param volume the volume to set
+<i class="no-highlight">100</i>&nbsp;     */
+<i class="no-highlight">101</i>&nbsp;    public void setEffectsVolume(float volume) {
+<b class="nc"><i class="no-highlight">102</i>&nbsp;        optionsObtains().putFloat(EFFECT_VOL, volume);</b>
+<b class="nc"><i class="no-highlight">103</i>&nbsp;        optionsObtains().flush();</b>
+<i class="no-highlight">104</i>&nbsp;    }
+<i class="no-highlight">105</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-05-03 14:20</div>
+</div>
+</body>
+</html>
