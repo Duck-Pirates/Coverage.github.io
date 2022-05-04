@@ -58,10 +58,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    43.8%
+    42.5%
   </span>
   <span class="absValue">
-    (32/73)
+    (31/73)
   </span>
 </td>
 </tr>
@@ -128,9 +128,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">53</i>&nbsp;        switch (cDef){</b>
 <i class="no-highlight">54</i>&nbsp;            
 <i class="no-highlight">55</i>&nbsp;            case ENEMY_BIT | PLAYER_BIT:
-<b class="fc"><i class="no-highlight">56</i>&nbsp;                ((SteerableEntity) fixA.getUserData()).onContact();</b>
-<b class="fc"><i class="no-highlight">57</i>&nbsp;                ((SteerableEntity) fixB.getUserData()).onContact();</b>
-<b class="fc"><i class="no-highlight">58</i>&nbsp;                break;</b>
+<b class="nc"><i class="no-highlight">56</i>&nbsp;                ((SteerableEntity) fixA.getUserData()).onContact();</b>
+<b class="nc"><i class="no-highlight">57</i>&nbsp;                ((SteerableEntity) fixB.getUserData()).onContact();</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;                break;</b>
 <i class="no-highlight">59</i>&nbsp;            case COLLEGE_BIT | CANNON_BIT:
 <b class="fc"><i class="no-highlight">60</i>&nbsp;                if(fixA.getFilterData().categoryBits == COLLEGE_BIT) {</b>
 <b class="fc"><i class="no-highlight">61</i>&nbsp;                    if(fixA.getUserData() != null &amp;&amp; InteractiveTileObject.class.isAssignableFrom(fixA.getUserData().getClass())) {</b>
@@ -150,9 +150,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">75</i>&nbsp;                }
 <i class="no-highlight">76</i>&nbsp;                break;
 <i class="no-highlight">77</i>&nbsp;            case PLAYER_BIT | CANNON_BIT:
-<b class="nc"><i class="no-highlight">78</i>&nbsp;                if(fixA.getFilterData().categoryBits == PLAYER_BIT) {</b>
-<b class="nc"><i class="no-highlight">79</i>&nbsp;                    ((SteerableEntity) fixA.getUserData()).onContact();</b>
-<b class="nc"><i class="no-highlight">80</i>&nbsp;                    ((CannonFire) fixB.getUserData()).setToDestroy(true);</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;                if(fixA.getFilterData().categoryBits == PLAYER_BIT) {</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;                    ((SteerableEntity) fixA.getUserData()).onContact();</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;                    ((CannonFire) fixB.getUserData()).setToDestroy(true);</b>
 <i class="no-highlight">81</i>&nbsp;                }
 <i class="no-highlight">82</i>&nbsp;                else {
 <b class="nc"><i class="no-highlight">83</i>&nbsp;                    ((SteerableEntity) fixB.getUserData()).onContact();</b>
@@ -160,9 +160,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">85</i>&nbsp;                }
 <b class="nc"><i class="no-highlight">86</i>&nbsp;                break;</b>
 <i class="no-highlight">87</i>&nbsp;            case ENEMY_BIT | CANNON_BIT:
-<b class="nc"><i class="no-highlight">88</i>&nbsp;                if(fixA.getFilterData().categoryBits == ENEMY_BIT) {</b>
-<b class="nc"><i class="no-highlight">89</i>&nbsp;                    ((SteerableEntity) fixA.getUserData()).onContact();</b>
-<b class="nc"><i class="no-highlight">90</i>&nbsp;                    ((CannonFire) fixB.getUserData()).setToDestroy(true);</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;                if(fixA.getFilterData().categoryBits == ENEMY_BIT) {</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;                    ((SteerableEntity) fixA.getUserData()).onContact();</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;                    ((CannonFire) fixB.getUserData()).setToDestroy(true);</b>
 <i class="no-highlight">91</i>&nbsp;                }
 <i class="no-highlight">92</i>&nbsp;                else {
 <b class="nc"><i class="no-highlight">93</i>&nbsp;                    ((SteerableEntity) fixB.getUserData()).onContact();</b>
@@ -206,10 +206,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">131</i>&nbsp;                }
 <b class="fc"><i class="no-highlight">132</i>&nbsp;                break;</b>
 <i class="no-highlight">133</i>&nbsp;            case DEFAULT_BIT | PLAYER_BIT:
-<b class="fc"><i class="no-highlight">134</i>&nbsp;                if(fixA.getFilterData().categoryBits == DEFAULT_BIT) {</b>
-<b class="fc"><i class="no-highlight">135</i>&nbsp;                    if (fixA.getUserData() != null &amp;&amp; InteractiveTileObject.class.isAssignableFrom(fixA.getUserData().getClass())) {</b>
-<b class="fc"><i class="no-highlight">136</i>&nbsp;                        ((InteractiveTileObject) fixA.getUserData()).onContact();</b>
-<b class="fc"><i class="no-highlight">137</i>&nbsp;                        ((Player) fixB.getUserData()).playBreakSound();</b>
+<b class="nc"><i class="no-highlight">134</i>&nbsp;                if(fixA.getFilterData().categoryBits == DEFAULT_BIT) {</b>
+<b class="nc"><i class="no-highlight">135</i>&nbsp;                    if (fixA.getUserData() != null &amp;&amp; InteractiveTileObject.class.isAssignableFrom(fixA.getUserData().getClass())) {</b>
+<b class="nc"><i class="no-highlight">136</i>&nbsp;                        ((InteractiveTileObject) fixA.getUserData()).onContact();</b>
+<b class="nc"><i class="no-highlight">137</i>&nbsp;                        ((Player) fixB.getUserData()).playBreakSound();</b>
 <i class="no-highlight">138</i>&nbsp;                    }
 <i class="no-highlight">139</i>&nbsp;                }
 <i class="no-highlight">140</i>&nbsp;                else {
@@ -315,7 +315,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-05-03 22:13</div>
+    <div style="float:right;">generated on 2022-05-04 18:10</div>
 </div>
 </body>
 </html>

@@ -39,18 +39,18 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name">GameScreen</td>
 <td class="coverageStat">
   <span class="percent">
-    63.4%
+    82.9%
   </span>
   <span class="absValue">
-    (26/41)
+    (34/41)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.2%
+    90.2%
   </span>
   <span class="absValue">
-    (253/297)
+    (268/297)
   </span>
 </td>
 </tr>
@@ -77,18 +77,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">GameScreen$2</td>
 <td class="coverageStat">
   <span class="percent">
-    50%
+    100%
   </span>
   <span class="absValue">
-    (1/2)
+    (2/2)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    33.3%
+    100%
   </span>
   <span class="absValue">
-    (1/3)
+    (3/3)
   </span>
 </td>
   </tr>
@@ -172,18 +172,18 @@ Current scope:     <a href="../../index.html">all classes</a>
     <td class="name">GameScreen$7</td>
 <td class="coverageStat">
   <span class="percent">
-    50%
+    100%
   </span>
   <span class="absValue">
-    (1/2)
+    (2/2)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    50%
+    100%
   </span>
   <span class="absValue">
-    (1/2)
+    (2/2)
   </span>
 </td>
   </tr>
@@ -191,18 +191,18 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    69.1%
+    87.3%
   </span>
   <span class="absValue">
-    (38/55)
+    (48/55)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.2%
+    90.9%
   </span>
   <span class="absValue">
-    (271/318)
+    (289/318)
   </span>
 </td>
 </tr>
@@ -693,8 +693,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">478</i>&nbsp;        shopButton.addListener(new ChangeListener() {</b>
 <i class="no-highlight">479</i>&nbsp;            @Override
 <i class="no-highlight">480</i>&nbsp;            public void changed(ChangeEvent event, Actor actor){
-<b class="nc"><i class="no-highlight">481</i>&nbsp;                pauseTable.setVisible(false);</b>
-<b class="nc"><i class="no-highlight">482</i>&nbsp;                getGame().changeScreen(SKILL, true);</b>
+<b class="fc"><i class="no-highlight">481</i>&nbsp;                pauseTable.setVisible(false);</b>
+<b class="fc"><i class="no-highlight">482</i>&nbsp;                getGame().changeScreen(SKILL, true);</b>
 <i class="no-highlight">483</i>&nbsp;            }
 <i class="no-highlight">484</i>&nbsp;        });
 <b class="fc"><i class="no-highlight">485</i>&nbsp;        skill.addListener(new ChangeListener() {</b>
@@ -730,7 +730,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">515</i>&nbsp;        exit.addListener(new ChangeListener() {</b>
 <i class="no-highlight">516</i>&nbsp;            @Override
 <i class="no-highlight">517</i>&nbsp;            public void changed(ChangeEvent event, Actor actor) {
-<b class="nc"><i class="no-highlight">518</i>&nbsp;                game.changeScreen(MENU, true);</b>
+<b class="fc"><i class="no-highlight">518</i>&nbsp;                game.changeScreen(MENU, true);</b>
 <i class="no-highlight">519</i>&nbsp;            }
 <i class="no-highlight">520</i>&nbsp;        });
 <i class="no-highlight">521</i>&nbsp;    }
@@ -772,12 +772,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">557</i>&nbsp;     * Destroys all the bodies in world
 <i class="no-highlight">558</i>&nbsp;     */
 <i class="no-highlight">559</i>&nbsp;    public void destroyBodies(){
-<b class="nc"><i class="no-highlight">560</i>&nbsp;        Array&lt;Body&gt; bodies = new Array&lt;&gt;();</b>
-<b class="nc"><i class="no-highlight">561</i>&nbsp;        world.getBodies(bodies);</b>
-<b class="nc"><i class="no-highlight">562</i>&nbsp;        for (Body body : bodies) {</b>
-<b class="nc"><i class="no-highlight">563</i>&nbsp;            if(!world.isLocked())</b>
-<b class="nc"><i class="no-highlight">564</i>&nbsp;                world.destroyBody(body);</b>
-<b class="nc"><i class="no-highlight">565</i>&nbsp;        }</b>
+<b class="fc"><i class="no-highlight">560</i>&nbsp;        Array&lt;Body&gt; bodies = new Array&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">561</i>&nbsp;        world.getBodies(bodies);</b>
+<b class="fc"><i class="no-highlight">562</i>&nbsp;        for (Body body : bodies) {</b>
+<b class="fc"><i class="no-highlight">563</i>&nbsp;            if(!world.isLocked())</b>
+<b class="fc"><i class="no-highlight">564</i>&nbsp;                world.destroyBody(body);</b>
+<b class="fc"><i class="no-highlight">565</i>&nbsp;        }</b>
 <i class="no-highlight">566</i>&nbsp;    }
 <i class="no-highlight">567</i>&nbsp;
 <i class="no-highlight">568</i>&nbsp;    /**
@@ -792,7 +792,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">577</i>&nbsp;    			return college;</b>
 <i class="no-highlight">578</i>&nbsp;    		}
 <b class="fc"><i class="no-highlight">579</i>&nbsp;    	}</b>
-<b class="nc"><i class="no-highlight">580</i>&nbsp;        return getColleges().get(0);</b>
+<b class="fc"><i class="no-highlight">580</i>&nbsp;        return getColleges().get(0);</b>
 <i class="no-highlight">581</i>&nbsp;    }
 <i class="no-highlight">582</i>&nbsp;
 <i class="no-highlight">583</i>&nbsp;    /**
@@ -802,8 +802,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">587</i>&nbsp;    public void gameOverCheck(){
 <i class="no-highlight">588</i>&nbsp;        //Lose game if ship on 0 health or Alcuin is destroyed
 <b class="fc"><i class="no-highlight">589</i>&nbsp;        if (Hud.getHealth() &lt;= 0 || getColleges().get(0).getHealth() &lt;= 0) {</b>
-<b class="nc"><i class="no-highlight">590</i>&nbsp;            getGame().changeScreen(DEATH, true);</b>
-<b class="nc"><i class="no-highlight">591</i>&nbsp;            destroyBodies();</b>
+<b class="fc"><i class="no-highlight">590</i>&nbsp;            getGame().changeScreen(DEATH, true);</b>
+<b class="fc"><i class="no-highlight">591</i>&nbsp;            destroyBodies();</b>
 <i class="no-highlight">592</i>&nbsp;        }
 <i class="no-highlight">593</i>&nbsp;        
 <b class="fc"><i class="no-highlight">594</i>&nbsp;        boolean victory = true;</b>
@@ -831,7 +831,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">616</i>&nbsp;    }
 <i class="no-highlight">617</i>&nbsp;
 <i class="no-highlight">618</i>&nbsp;    public static void setPlayer(Player player) {
-<b class="nc"><i class="no-highlight">619</i>&nbsp;    	getShips().set(0, player);</b>
+<b class="fc"><i class="no-highlight">619</i>&nbsp;    	getShips().set(0, player);</b>
 <i class="no-highlight">620</i>&nbsp;    }
 <i class="no-highlight">621</i>&nbsp;    
 <i class="no-highlight">622</i>&nbsp;    /**
@@ -892,7 +892,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">677</i>&nbsp;        if (invalidSpawnClouds.containsKey(x)){</b>
 <b class="fc"><i class="no-highlight">678</i>&nbsp;            ArrayList&lt;Integer&gt; yTest = invalidSpawnClouds.get(x);</b>
 <b class="fc"><i class="no-highlight">679</i>&nbsp;            if (yTest.contains(y)){</b>
-<b class="fc"><i class="no-highlight">680</i>&nbsp;                return false;</b>
+<b class="nc"><i class="no-highlight">680</i>&nbsp;                return false;</b>
 <i class="no-highlight">681</i>&nbsp;            }
 <i class="no-highlight">682</i>&nbsp;        }
 <b class="fc"><i class="no-highlight">683</i>&nbsp;        for (int i = -1; i &lt; 2; i++){</b>
@@ -956,7 +956,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">741</i>&nbsp;	}
 <i class="no-highlight">742</i>&nbsp;
 <i class="no-highlight">743</i>&nbsp;	public AvailableSpawn getInvalidSpawn() {
-<b class="nc"><i class="no-highlight">744</i>&nbsp;		return invalidSpawn;</b>
+<b class="fc"><i class="no-highlight">744</i>&nbsp;		return invalidSpawn;</b>
 <i class="no-highlight">745</i>&nbsp;	}
 <i class="no-highlight">746</i>&nbsp;
 <i class="no-highlight">747</i>&nbsp;	public static ArrayList&lt;College&gt; getColleges() {
@@ -964,7 +964,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">749</i>&nbsp;	}
 <i class="no-highlight">750</i>&nbsp;
 <i class="no-highlight">751</i>&nbsp;	public static void setColleges(ArrayList&lt;College&gt; colleges) {
-<b class="nc"><i class="no-highlight">752</i>&nbsp;		GameScreen.colleges = colleges;</b>
+<b class="fc"><i class="no-highlight">752</i>&nbsp;		GameScreen.colleges = colleges;</b>
 <i class="no-highlight">753</i>&nbsp;	}
 <i class="no-highlight">754</i>&nbsp;
 <i class="no-highlight">755</i>&nbsp;	public static ArrayList&lt;Powerup&gt; getPowerups() {
@@ -980,18 +980,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">765</i>&nbsp;	}
 <i class="no-highlight">766</i>&nbsp;
 <i class="no-highlight">767</i>&nbsp;	public static void setShips(ArrayList&lt;SteerableEntity&gt; ships) {
-<b class="nc"><i class="no-highlight">768</i>&nbsp;		GameScreen.ships = ships;</b>
+<b class="fc"><i class="no-highlight">768</i>&nbsp;		GameScreen.ships = ships;</b>
 <i class="no-highlight">769</i>&nbsp;	}
 <i class="no-highlight">770</i>&nbsp;
 <i class="no-highlight">771</i>&nbsp;	public static void setCoins(ArrayList&lt;Coin&gt; coins) {
-<b class="nc"><i class="no-highlight">772</i>&nbsp;		GameScreen.coins = coins;</b>
+<b class="fc"><i class="no-highlight">772</i>&nbsp;		GameScreen.coins = coins;</b>
 <i class="no-highlight">773</i>&nbsp;	}
 <i class="no-highlight">774</i>&nbsp;
 <i class="no-highlight">775</i>&nbsp;	public static void setPowerups(ArrayList&lt;Powerup&gt; powerups) {
-<b class="nc"><i class="no-highlight">776</i>&nbsp;		GameScreen.powerups = powerups;</b>
+<b class="fc"><i class="no-highlight">776</i>&nbsp;		GameScreen.powerups = powerups;</b>
 <i class="no-highlight">777</i>&nbsp;	}
 <i class="no-highlight">778</i>&nbsp;
-<b class="nc"><i class="no-highlight">779</i>&nbsp;    public static void setTornadoes(ArrayList&lt;Tornado&gt; tornadoes){ GameScreen.Tornadoes = tornadoes;}</b>
+<b class="fc"><i class="no-highlight">779</i>&nbsp;    public static void setTornadoes(ArrayList&lt;Tornado&gt; tornadoes){ GameScreen.Tornadoes = tornadoes;}</b>
 <i class="no-highlight">780</i>&nbsp;
 <i class="no-highlight">781</i>&nbsp;	public void setTempTime(Float tempTime) {
 <b class="fc"><i class="no-highlight">782</i>&nbsp;		TempTime = tempTime;</b>
@@ -1035,7 +1035,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-05-03 22:13</div>
+    <div style="float:right;">generated on 2022-05-04 18:10</div>
 </div>
 </body>
 </html>
